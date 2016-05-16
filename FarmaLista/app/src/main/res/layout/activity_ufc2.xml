@@ -9,4 +9,59 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.giacomo.farmalista.UFC2">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="e-mail"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="password"
+            android:ems="10"
+            android:id="@+id/editText4"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="conferma password"
+            android:ems="10"
+            android:id="@+id/editText5"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrati"
+            android:id="@+id/button"
+            android:background="#008080"
+            android:textColor="#ffff"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cliccando registrati accetti i termini del contratto"
+            android:id="@+id/textView5"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
 </RelativeLayout>
