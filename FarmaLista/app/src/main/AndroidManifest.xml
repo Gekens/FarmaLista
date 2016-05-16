@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".UFC3"
+            android:name=".UFC1"
             android:label="Lista Medicinale"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UFC1" />
+        <activity android:name=".UFC3" />
         <activity android:name=".UFC11"></activity>
     </application>
 
