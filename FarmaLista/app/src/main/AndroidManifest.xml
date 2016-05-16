@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".UFC3" />
-        <activity android:name=".UFC11"></activity>
+        <activity android:name=".UFC11" />
+        <activity android:name=".UFC2"></activity>
     </application>
 
 </manifest>
