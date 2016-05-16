@@ -9,8 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.giacomo.farmalista.UFC5"
-    tools:showIn="@layout/app_bar_ufc5"
+    tools:context=".UFC3"
+    tools:showIn="@layout/app_bar_ufc3"
     android:background="@drawable/foglio">
 
     <LinearLayout
