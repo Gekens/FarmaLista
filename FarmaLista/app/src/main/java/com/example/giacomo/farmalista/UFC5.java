@@ -37,8 +37,7 @@ public class UFC5 extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vIntent = new Intent(UFC5.this, UFC1.class);
-                startActivity(vIntent);
+                // tasto più
             }
         });
 
