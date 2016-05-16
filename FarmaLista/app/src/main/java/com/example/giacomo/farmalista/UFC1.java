@@ -22,7 +22,7 @@ public class UFC1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // per creare e sucessivamente lanciare la nuova activity
-                Intent intent = new Intent(Ufc1.this, Ufc11.class);
+                Intent intent = new Intent(UFC1.this, Ufc11.class);
 
                 /*
                 // per passare dati da una activity ad un'altra
