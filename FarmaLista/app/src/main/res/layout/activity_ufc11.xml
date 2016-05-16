@@ -23,6 +23,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+=======
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,6 +40,17 @@
         android:textColorHint="#ffffff"
         android:textStyle="italic" />
 
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="FarmaLista"
+    android:id="@+id/textViewTitle"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="38dp"
+    android:textColor="#ffffff"
+    android:textSize="30sp" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,22 +59,31 @@
         android:id="@+id/editText"
         android:layout_below="@+id/editTextEmail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="74dp"
-        android:hint="password"
-        android:textColorHint="#ffffff"
-        android:textStyle="italic"
+        android:layout_marginTop="50dp" />
+
+</LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accedi"
+        android:id="@+id/buttonAccedi"
+        android:layout_marginBottom="190dp"
+        android:layout_alignParentBottom="true"
+        android:background="#008080"
         android:textColor="#ffffff"
-        android:textColorHighlight="#ffffff" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FarmaLista"
-        android:id="@+id/textViewTitle"
-        android:layout_alignParentTop="true"
+        android:text="Hai dimenticato la password?"
+        android:id="@+id/textView5"
+        android:layout_alignTop="@+id/buttonAccedi"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:textColor="#ffffff"
-        android:textSize="30sp" />
-
+        android:layout_marginTop="80dp" />
+>>>>>>> origin/master
 </RelativeLayout>
