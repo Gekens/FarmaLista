@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".UFC5"
+            android:name=".UFC3"
             android:label="Lista Medicinale"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
