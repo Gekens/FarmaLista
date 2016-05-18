@@ -39,10 +39,13 @@ public class UFC11 extends AppCompatActivity {
                 // altrimenti avviso con un messaggio di toast
                 if (email.getText().toString().length() != 0 && password.getText().toString().length() != 0) {
 
+                    // cripto la password inserita dall'utente al momento del login, così posso confrontarla
+                    // con quella inserita in fase di registrazione e criptata poi salvata dentro la variabile
+                    // statica ApiCall.credenziali
                     String passwordLogin = UFC2.md5(password.getText().toString());
 
                     // faccio una richiesta al database remoto che mi risponde con una stringa json che al momento
-                    // è simulata dalla variabile globale stringa credenziali, da questa stringa ricavo un oggetto
+                    // è simulata dalla variabile globale stringa Apical.credenziali, da questa stringa ricavo un oggetto
                     // json dal quale prendo le proprietà che mi servono per verificare l'identità dell'utente
                     Log.d("json",ApiCall.credenziali);
 

@@ -23,6 +23,8 @@ public class UFC2 extends AppCompatActivity {
     Button registrati;
     String emailString = null, passwordString = null;
 
+    // metodo che mi permette di criptare una stringa, viene utilizzato per criptare la password utente
+    // importante: la stringa abc se criptata più volte da sempre lo stesso risultato
     public static final String md5(final String toEncrypt) {
         try {
             final MessageDigest digest = MessageDigest.getInstance("md5");
