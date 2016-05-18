@@ -73,6 +73,8 @@ public class UFC11 extends AppCompatActivity {
                     } else {
                         Toast.makeText(UFC11.this, "Username o password errati", Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Toast.makeText(UFC11.this, "Username o password errati", Toast.LENGTH_SHORT).show();
                 }
 
             }
