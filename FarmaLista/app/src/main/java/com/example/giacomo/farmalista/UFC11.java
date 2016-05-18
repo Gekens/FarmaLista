@@ -1,5 +1,6 @@
 package com.example.giacomo.farmalista;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,41 @@ public class UFC11 extends AppCompatActivity {
                     // faccio una richiesta al database remoto che mi risponde con una stringa json che al momento
                     // è simulata dalla variabile globale stringa credenziali, da questa stringa ricavo un oggetto
                     // json dal quale prendo le proprietà che mi servono per verificare l'identità dell'utente
+                    JSONArray mArrJson;
+                    JSONObject mObjJson;
 
+                    try {
+                        mArrJson = new JSONArray(UFC2.credenziali);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        mArrJson = null;
+                    }
+
+                    String emailDB = null;
+                    String passwDB = null;
+
+                    try {
+                        mObjJson = mArrJson.getJSONObject(0);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        mObjJson = null;
+                    }
+
+                    try {
+                        emailDB = mObjJson.getString("email");
+                        passwDB = mObjJson.getString("password");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    // verifico che email e password siano quelle dell'utente
+                    if (email.getText().toString().equals(emailDB) && password.getText().toString().equals(passwDB)) {
+                        Intent intent = new Intent(UFC11.this, UFC3.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(UFC11.this, "mail o password errati", Toast.LENGTH_SHORT).show();
+                    }
 
                 } else {
                     Toast.makeText(UFC11.this, "Inserire nome utente e/o password", Toast.LENGTH_SHORT).show();
