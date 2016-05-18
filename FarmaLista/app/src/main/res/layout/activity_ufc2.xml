@@ -23,7 +23,7 @@
             android:inputType="textEmailAddress"
             android:hint="e-mail"
             android:ems="10"
-            android:id="@+id/editText3"
+            android:id="@+id/email"
             android:layout_gravity="center_horizontal" />
 
         <EditText
@@ -33,7 +33,7 @@
             android:inputType="textPassword"
             android:hint="password"
             android:ems="10"
-            android:id="@+id/editText4"
+            android:id="@+id/password"
             android:layout_gravity="center_horizontal" />
 
         <EditText
@@ -43,7 +43,7 @@
             android:inputType="textPassword"
             android:hint="conferma password"
             android:ems="10"
-            android:id="@+id/editText5"
+            android:id="@+id/confermaPassword"
             android:layout_gravity="center_horizontal" />
 
         <Button
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Registrati"
-            android:id="@+id/button"
+            android:id="@+id/registrati"
             android:background="#008080"
             android:textColor="#ffff"
             android:layout_gravity="center_horizontal" />
