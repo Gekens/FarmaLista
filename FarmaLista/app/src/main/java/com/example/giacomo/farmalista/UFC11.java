@@ -39,6 +39,8 @@ public class UFC11 extends AppCompatActivity {
                 // altrimenti avviso con un messaggio di toast
                 if (email.getText().toString().length() != 0 && password.getText().toString().length() != 0) {
 
+                    String passwordLogin = UFC2.md5(password.getText().toString());
+
                     // faccio una richiesta al database remoto che mi risponde con una stringa json che al momento
                     // è simulata dalla variabile globale stringa credenziali, da questa stringa ricavo un oggetto
                     // json dal quale prendo le proprietà che mi servono per verificare l'identità dell'utente
@@ -67,7 +69,7 @@ public class UFC11 extends AppCompatActivity {
 
 
                     // verifico che email e password siano quelle dell'utente
-                    if (email.getText().toString().equals(mailDB) && password.getText().toString().equals(pswDB)) {
+                    if (email.getText().toString().equals(mailDB) && passwordLogin.equals(pswDB)) {
                         Intent intent = new Intent(UFC11.this, UFC3.class);
                         startActivity(intent);
                         finish();
