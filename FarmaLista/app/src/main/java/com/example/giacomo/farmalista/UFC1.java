@@ -45,6 +45,8 @@ public class UFC1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UFC1.this, UFC2.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

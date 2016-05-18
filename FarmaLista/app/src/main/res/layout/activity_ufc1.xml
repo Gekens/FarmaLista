@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.giacomo.farmalista.UFC1">
+    tools:context="com.example.giacomo.farmalista.UFC1"
+    android:background="@drawable/medicine">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -47,14 +48,16 @@
             android:layout_marginLeft="1dp" />
     </LinearLayout>
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView5"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="FarmaLista"
+        android:id="@+id/textViewTitle"
         android:layout_alignParentTop="true"
-        android:src="@drawable/splash"
-        android:layout_alignRight="@+id/linearLayout2"
-        android:layout_alignEnd="@+id/linearLayout2"
-        android:layout_above="@+id/linearLayout2" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="166dp"
+        android:textSize="30sp"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>
