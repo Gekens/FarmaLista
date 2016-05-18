@@ -75,12 +75,11 @@ public class UFC2 extends AppCompatActivity {
 
                     // al momento salvo il json in una variabile globale di tipo string
                     // qui dovrei mettere le istruzioni per scrivere nel db remoto
+
                     credenziali = obj.toString();
+                    UFC1.PassaggioDatiJson.credenziali = credenziali;
                     // stampa di controllo
                     Log.d("json",credenziali);
-
-
-
 
                     // lancio l'activity UFC11
                     Intent intent = new Intent(UFC2.this, UFC11.class);
