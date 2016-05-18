@@ -80,8 +80,8 @@ public class UFC2 extends AppCompatActivity {
 
 
 
-                    // lancio l'activity UFC3
-                    Intent intent = new Intent(UFC2.this, UFC3.class);
+                    // lancio l'activity UFC11
+                    Intent intent = new Intent(UFC2.this, UFC11.class);
                     startActivity(intent);
                     finish();
                 }
