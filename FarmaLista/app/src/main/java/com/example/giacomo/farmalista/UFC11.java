@@ -54,6 +54,7 @@ public class UFC11 extends AppCompatActivity {
                         Log.d("json",mObjJson.get("email").toString());
                         Log.d("json",mObjJson.get("password").toString());
 
+
                         // recupero mail e password dal json
                         mailDB = mObjJson.get("email").toString();
                         pswDB = mObjJson.get("password").toString();
