@@ -5,6 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+<<<<<<< HEAD
     <string name="title_activity_ufc13">UFC13</string>
     <string name="large_text">
         "ai sensi del D.Lgs. 196/2003, sulla tutela delle persone e di altri soggetti rispetto al trattamento dei dati personali, il "
@@ -41,4 +42,7 @@
         "(indicare almeno un responsabile, e, se vi è un responsabile designato ai fini di cui all'articolo 7 del D.Lgs. 196/2003, indicare"
         "quel soggetto; indicare, inoltre, il sito della rete"
         </string>
+=======
+    <string name="title_activity_ufc3">UFC3</string>
+>>>>>>> origin/master
 </resources>

@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.giacomo.farmalista.UFC11"
-    android:background="#008080">
+    android:background="#ffffff">
 
     <Button
         android:layout_width="wrap_content"
@@ -31,25 +31,15 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/editTextEmail"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="154dp"
+        android:layout_marginTop="98dp"
         android:hint="email"
-        android:textColor="#ffffff"
-        android:textColorHighlight="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textStyle="italic" />
-
-    <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="FarmaLista"
-    android:id="@+id/textViewTitle"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="38dp"
-    android:textColor="#ffffff"
-    android:textSize="30sp" />
+        android:textColor="#008080"
+        android:textColorHighlight="#008080"
+        android:textColorHint="#008080"
+        android:textStyle="italic"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -58,20 +48,13 @@
         android:ems="10"
         android:id="@+id/editText"
         android:hint="password"
-        android:textColorHint="#ffffff"
+        android:textColorHint="#008080"
         android:textStyle="italic"
         android:layout_below="@+id/editTextEmail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:textColor="#008080"
+        android:textColorHighlight="#008080" />
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hai dimenticato la password?"
-        android:id="@+id/textView5"
-        android:layout_marginTop="44dp"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
