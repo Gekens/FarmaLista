@@ -74,8 +74,8 @@ public class UFC2 extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    Log.d("json",obj.toString());
                     credenziali = obj.toString();
+                    Log.d("json",credenziali);
 
 
 
