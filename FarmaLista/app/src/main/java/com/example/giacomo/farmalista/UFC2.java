@@ -77,7 +77,7 @@ public class UFC2 extends AppCompatActivity {
                     // qui dovrei mettere le istruzioni per scrivere nel db remoto
 
                     credenziali = obj.toString();
-                    UFC1.PassaggioDatiJson.credenziali = credenziali;
+                    ApiCall.credenziali = credenziali;
                     // stampa di controllo
                     Log.d("json",credenziali);
 

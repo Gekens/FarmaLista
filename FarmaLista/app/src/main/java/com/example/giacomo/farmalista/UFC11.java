@@ -42,13 +42,13 @@ public class UFC11 extends AppCompatActivity {
                     // faccio una richiesta al database remoto che mi risponde con una stringa json che al momento
                     // è simulata dalla variabile globale stringa credenziali, da questa stringa ricavo un oggetto
                     // json dal quale prendo le proprietà che mi servono per verificare l'identità dell'utente
-                    Log.d("json",UFC1.PassaggioDatiJson.credenziali);
+                    Log.d("json",ApiCall.credenziali);
 
                     String mailDB = null;
                     String pswDB = null;
 
                     try {
-                        mObjJson = new JSONObject(UFC1.PassaggioDatiJson.credenziali);
+                        mObjJson = new JSONObject(ApiCall.credenziali);
 
                         // stampe di prova
                         Log.d("json",mObjJson.get("email").toString());

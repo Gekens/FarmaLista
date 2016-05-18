@@ -8,10 +8,6 @@ import android.widget.Button;
 
 public class UFC1 extends AppCompatActivity {
 
-    public static class PassaggioDatiJson {
-        public static String credenziali;
-    }
-
     Button accedi, registrati;
 
     @Override
