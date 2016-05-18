@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,8 +28,8 @@ public class UFC2 extends AppCompatActivity {
         setContentView(R.layout.activity_ufc2);
 
         privacy = (TextView) findViewById(R.id.privacy);
-        email = (TextView) findViewById(R.id.email);
-        password = (TextView) findViewById(R.id.password);
+        email = (TextView) findViewById(R.id.emailLogin);
+        password = (TextView) findViewById(R.id.passwordLogin);
         confermaPassword = (TextView) findViewById(R.id.confermaPassword);
         registrati = (Button) findViewById(R.id.registrati);
 
@@ -74,7 +73,10 @@ public class UFC2 extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
+                    // al momento salvo il json in una variabile globale di tipo string
+                    // qui dovrei mettere le istruzioni per scrivere nel db remoto
                     credenziali = obj.toString();
+                    // stampa di controllo
                     Log.d("json",credenziali);
 
 

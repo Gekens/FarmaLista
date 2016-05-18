@@ -23,7 +23,7 @@
             android:inputType="textEmailAddress"
             android:hint="e-mail"
             android:ems="10"
-            android:id="@+id/email"
+            android:id="@+id/emailLogin"
             android:layout_gravity="center_horizontal" />
 
         <EditText
@@ -33,7 +33,7 @@
             android:inputType="textPassword"
             android:hint="password"
             android:ems="10"
-            android:id="@+id/password"
+            android:id="@+id/passwordLogin"
             android:layout_gravity="center_horizontal" />
 
         <EditText
