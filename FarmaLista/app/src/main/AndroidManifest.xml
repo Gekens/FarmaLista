@@ -25,6 +25,7 @@
         <activity android:name=".UFC13" />
         <activity android:name=".UFC8" />
         <activity android:name=".UFC5"></activity>
+        <activity android:name=".UFC14" />
     </application>
 
 </manifest>
