@@ -18,10 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UFC3" />
         <activity android:name=".UFC11" />
         <activity android:name=".UFC2" />
-        <activity android:name=".UFC6"></activity>
+        <activity android:name=".UFC6" />
+        <activity
+            android:name=".UFC3"
+            android:label="@string/title_activity_ufc3"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
