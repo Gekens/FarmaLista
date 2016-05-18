@@ -14,7 +14,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+
 public class UFC2 extends AppCompatActivity {
+
+    static String credenziali = "";
 
     TextView privacy, email, password, confermaPassword;
     Button registrati;
@@ -72,7 +75,7 @@ public class UFC2 extends AppCompatActivity {
                     }
 
                     Log.d("json",obj.toString());
-
+                    credenziali = obj.toString();
 
 
 
