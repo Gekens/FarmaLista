@@ -85,8 +85,9 @@ public class UFC3 extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
+        } else if (id == R.id.nav_contatti) {
+            Intent vIntent = new Intent(UFC3.this, UFC7.class);
+            startActivity(vIntent);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
