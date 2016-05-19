@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editTextEmail"
+        android:id="@+id/emailLogin"
         android:layout_marginTop="98dp"
         android:hint="email"
         android:textColor="#008080"
@@ -38,19 +38,19 @@
         android:textColorHint="#008080"
         android:textStyle="italic"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/passwordLogin"
+        android:layout_alignStart="@+id/passwordLogin" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/passwordLogin"
         android:hint="password"
         android:textColorHint="#008080"
         android:textStyle="italic"
-        android:layout_below="@+id/editTextEmail"
+        android:layout_below="@+id/emailLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:textColor="#008080"

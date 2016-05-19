@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
 
 
 public class UFC2 extends AppCompatActivity {
@@ -23,14 +23,30 @@ public class UFC2 extends AppCompatActivity {
     Button registrati;
     String emailString = null, passwordString = null;
 
+    // metodo che mi permette di criptare una stringa, viene utilizzato per criptare la password utente
+    // importante: la stringa abc se criptata più volte da sempre lo stesso risultato
+    public static final String md5(final String toEncrypt) {
+        try {
+            final MessageDigest digest = MessageDigest.getInstance("md5");
+            digest.update(toEncrypt.getBytes());
+            final byte[] bytes = digest.digest();
+            final StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bytes.length; i++) {
+                sb.append(String.format("%02X", bytes[i]));
+            }
+            return sb.toString().toLowerCase();
+        } catch (Exception exc) {
+            return "";
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ufc2);
 
         privacy = (TextView) findViewById(R.id.privacy);
-        email = (TextView) findViewById(R.id.email);
-        password = (TextView) findViewById(R.id.password);
+        email = (TextView) findViewById(R.id.emailLogin);
+        password = (TextView) findViewById(R.id.passwordLogin);
         confermaPassword = (TextView) findViewById(R.id.confermaPassword);
         registrati = (Button) findViewById(R.id.registrati);
 
@@ -58,6 +74,8 @@ public class UFC2 extends AppCompatActivity {
                 if (password.getText().toString().length() != 0
                         && password.getText().toString().equals(confermaPassword.getText().toString())) {
                     passwordString = password.getText().toString();
+
+                    passwordString = md5(passwordString);
                 } else {
                     Toast.makeText(UFC2.this, "Le password non coincidono", Toast.LENGTH_SHORT).show();
                 }
@@ -74,11 +92,13 @@ public class UFC2 extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
+                    // al momento salvo il json in una variabile globale di tipo string
+                    // qui dovrei mettere le istruzioni per scrivere nel db remoto
+
                     credenziali = obj.toString();
+                    ApiCall.credenziali = credenziali;
+                    // stampa di controllo
                     Log.d("json",credenziali);
-
-
-
 
                     // lancio l'activity UFC11
                     Intent intent = new Intent(UFC2.this, UFC11.class);
