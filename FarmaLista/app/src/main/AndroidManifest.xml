@@ -24,15 +24,12 @@
         <activity android:name=".UFC3" />
         <activity android:name=".UFC13" />
         <activity android:name=".UFC8" />
-<<<<<<< HEAD
         <activity android:name=".UFC5" />
         <activity android:name=".UFC9" />
         <activity android:name=".UFC7" />
         <activity android:name=".UFC10"></activity>
-=======
         <activity android:name=".UFC5"></activity>
         <activity android:name=".UFC14" />
->>>>>>> origin/master
     </application>
 
 </manifest>
