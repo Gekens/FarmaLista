@@ -186,14 +186,13 @@
         android:ems="10"
         android:id="@+id/editTextDate"
         android:layout_alignBottom="@+id/textViewStartAss"
-        android:layout_alignLeft="@+id/editTextNumberBox"
-        android:layout_alignStart="@+id/editTextNumberBox"
         android:layout_toLeftOf="@+id/spinner"
-        android:layout_toStartOf="@+id/spinner"
         android:hint="Data"
         android:textColor="#008080"
         android:textColorHighlight="#008080"
-        android:textColorHint="#008080" />
+        android:textColorHint="#008080"
+        android:layout_alignLeft="@+id/buttonInsert"
+        android:layout_alignStart="@+id/buttonInsert" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -218,9 +217,10 @@
         android:textColorHighlight="#008080"
         android:textColorHint="#008080"
         android:layout_alignBottom="@+id/textViewDayAss"
-        android:layout_toRightOf="@+id/textViewDayAss"
         android:layout_alignRight="@+id/textViewDos"
-        android:layout_alignEnd="@+id/textViewDos" />
+        android:layout_alignEnd="@+id/textViewDos"
+        android:layout_alignLeft="@+id/editTextDate"
+        android:layout_alignStart="@+id/editTextDate" />
 
     <Button
         android:layout_width="wrap_content"
