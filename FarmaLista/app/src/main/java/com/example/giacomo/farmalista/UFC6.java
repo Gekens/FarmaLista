@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -15,9 +16,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
-    TextView nomemedicina;
+    EditText nomemedicina;
     NumberPicker quantita, scatole, dosaggio, giorni;
-    String squantita, sscatole, sdosaggio, sgiorni;
+    String smedicina, squantita, sscatole, sdosaggio, sgiorni;
     Button insert;
     ImageButton data;
     static String medicine = "";
@@ -28,7 +29,7 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ufc6);
-        nomemedicina = (TextView) findViewById(R.id.editTextNameMedicine);
+        nomemedicina = (EditText) findViewById(R.id.editTextNameMedicine);
         quantita = (NumberPicker) findViewById(R.id.numberPicker);
         scatole = (NumberPicker) findViewById(R.id.numberPicker2);
         dosaggio = (NumberPicker) findViewById(R.id.numberPicker3);
@@ -37,7 +38,11 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
         data = (ImageButton) findViewById(R.id.imageButton);
 
 
-
+        smedicina = nomemedicina.getText().toString();
+        squantita = Integer.toString(quantita.getValue());
+        sscatole = Integer.toString(scatole.getValue());
+        sdosaggio = Integer.toString(dosaggio.getValue());
+        sgiorni = Integer.toString(giorni.getValue());
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
