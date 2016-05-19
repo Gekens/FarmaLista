@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class UFC6 extends AppCompatActivity {
     NumberPicker quantita, scatole, dosaggio, giorni;
     String squantita, sscatole, sdosaggio, sgiorni;
     Button insert;
+    ImageButton data;
     static String medicine = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class UFC6 extends AppCompatActivity {
         dosaggio = (NumberPicker) findViewById(R.id.numberPicker3);
         giorni = (NumberPicker) findViewById(R.id.numberPicker4);
         insert = (Button) findViewById(R.id.buttonInsert);
+        data = (ImageButton) findViewById(R.id.imageButton);
+
 
         squantita = quantita.getDisplayedValues().toString();
         sscatole = scatole.getDisplayedValues().toString();
@@ -51,6 +55,14 @@ public class UFC6 extends AppCompatActivity {
                 ApiCall.medicine += medicine;
                 // stampa di controllo
                 Log.d("json",medicine);
+            }
+        });
+
+
+        data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
