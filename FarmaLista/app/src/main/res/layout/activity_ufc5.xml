@@ -7,12 +7,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-<<<<<<< HEAD
+
     tools:context="com.example.giacomo.farmalista.UFC5">
 
-=======
-    tools:context="com.example.giacomo.farmalista.UFC6">
->>>>>>> origin/master
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -227,8 +225,8 @@
         android:layout_alignRight="@+id/textViewDos"
         android:layout_alignEnd="@+id/textViewDos" />
 
-<<<<<<< HEAD
-=======
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -240,7 +238,7 @@
         android:layout_toRightOf="@+id/editTextNumber"
         android:layout_toEndOf="@+id/editTextNumber" />
 
->>>>>>> origin/master
+
     <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -289,7 +287,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+
         android:text="MODIFICA"
         android:id="@+id/button5"
         android:background="#008080"
@@ -311,7 +309,7 @@
         android:layout_alignEnd="@+id/editTextNameMedicine"
         android:layout_marginRight="45dip"/>
 
-=======
+
         android:text="Annulla"
         android:id="@+id/button"
         android:background="#008080"
@@ -319,5 +317,5 @@
         android:layout_alignTop="@+id/buttonChange"
         android:layout_alignRight="@+id/numberPicker2"
         android:layout_alignEnd="@+id/numberPicker2" />
->>>>>>> origin/master
+
 </RelativeLayout>
