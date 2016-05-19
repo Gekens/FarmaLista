@@ -16,9 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
-    EditText nomemedicina;
-    NumberPicker quantita, scatole, dosaggio, giorni;
-    String smedicina, squantita, sscatole, sdosaggio, sgiorni;
+    EditText nomemedicina, dosaggio, quantita, scatole, giorni;
+    String smedicina, squantita, sscatole, sdosaggio, sgiorni, sdata;
     Button insert;
     ImageButton data;
     static String medicine = "";
@@ -30,19 +29,19 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ufc6);
         nomemedicina = (EditText) findViewById(R.id.editTextNameMedicine);
-        quantita = (NumberPicker) findViewById(R.id.numberPicker);
-        scatole = (NumberPicker) findViewById(R.id.numberPicker2);
-        dosaggio = (NumberPicker) findViewById(R.id.numberPicker3);
-        giorni = (NumberPicker) findViewById(R.id.numberPicker4);
+        quantita = (EditText) findViewById(R.id.editTextQtaTot);
+        scatole = (EditText) findViewById(R.id.editTextNumberBox);
+        dosaggio = (EditText) findViewById(R.id.editTextNumber);
+        giorni = (EditText) findViewById(R.id.editTextDayAss);
         insert = (Button) findViewById(R.id.buttonInsert);
         data = (ImageButton) findViewById(R.id.imageButton);
 
 
         smedicina = nomemedicina.getText().toString();
-        squantita = Integer.toString(quantita.getValue());
-        sscatole = Integer.toString(scatole.getValue());
-        sdosaggio = Integer.toString(dosaggio.getValue());
-        sgiorni = Integer.toString(giorni.getValue());
+        squantita = quantita.getText().toString();
+        sscatole = scatole.getText().toString();
+        sdosaggio = dosaggio.getText().toString();
+        sgiorni = giorni.getText().toString();
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +53,7 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
                     obj.put("scatole", sscatole);
                     obj.put("dosaggio", sdosaggio);
                     obj.put("giorni", sgiorni);
+                    obj.put("data", sdata);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -85,5 +85,10 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
         FragmentTransaction vTansaction = vManager.beginTransaction();
         vTansaction.remove(vFragment);
         vTansaction.commit();
+    }
+
+    @Override
+    public void getDate(String data) {
+        sdata = data;
     }
 }

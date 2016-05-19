@@ -16,9 +16,11 @@ public class DataPicker extends Fragment{
     String data;
     CalendarView calendario;
     IFragment mListener;
+    IFragment mData;
 
     public interface IFragment {
         public void closeFragment();
+        public void getDate(String data);
     }
 
     @Override
@@ -29,8 +31,9 @@ public class DataPicker extends Fragment{
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                data = String.valueOf(calendario.getDate());
+                data = Integer.toString(year).concat(Integer.toString(month).concat(Integer.toString(dayOfMonth)));
                 mListener.closeFragment();
+                mData.getDate(data);
             }
         });
 

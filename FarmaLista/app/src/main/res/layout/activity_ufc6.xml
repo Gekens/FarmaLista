@@ -53,15 +53,15 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editTextQtaTot"
-        android:layout_alignBottom="@+id/textViewQtaTot"
-        android:layout_alignLeft="@+id/textViewTitle"
-        android:layout_alignStart="@+id/textViewTitle"
         android:hint="0"
-        android:layout_alignRight="@+id/textViewTitle"
-        android:layout_alignEnd="@+id/textViewTitle"
         android:textColor="#008080"
         android:textColorHighlight="#008080"
-        android:textColorHint="#008080" />
+        android:textColorHint="#008080"
+        android:layout_above="@+id/textViewNrBox"
+        android:layout_alignRight="@+id/editTextNameMedicine"
+        android:layout_alignEnd="@+id/editTextNameMedicine"
+        android:layout_toRightOf="@+id/buttonInsert"
+        android:layout_toEndOf="@+id/buttonInsert" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -135,29 +135,25 @@
         android:layout_height="wrap_content"
         android:text="Unità di misura"
         android:id="@+id/textViewUnit"
-        android:layout_alignTop="@+id/textViewNum"
-        android:layout_alignLeft="@+id/editTextNumberBox"
-        android:layout_alignStart="@+id/editTextNumberBox"
-        android:layout_marginLeft="63dp"
-        android:layout_marginStart="63dp"
         android:textColor="#000000"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:layout_below="@+id/textViewNum"
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editTextUnit"
-        android:layout_below="@+id/textViewUnit"
-        android:layout_alignLeft="@+id/textViewUnit"
-        android:layout_alignStart="@+id/textViewUnit"
-        android:layout_alignRight="@+id/textViewUnit"
-        android:layout_alignEnd="@+id/textViewUnit"
         android:hint="0"
         android:textColorHint="#008080"
         android:textColorHighlight="#008080"
-        android:textColor="#008080" />
+        android:textColor="#008080"
+        android:layout_below="@+id/textViewNum"
+        android:layout_alignRight="@+id/textViewDos"
+        android:layout_alignEnd="@+id/textViewDos" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -232,55 +228,13 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker"
-        android:layout_alignTop="@+id/editTextQtaTot"
-        android:layout_toRightOf="@+id/editTextQtaTot"
-        android:layout_toEndOf="@+id/editTextQtaTot"
-        android:layout_alignBottom="@+id/textViewQtaTot" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker2"
-        android:layout_alignLeft="@+id/numberPicker"
-        android:layout_alignStart="@+id/numberPicker"
-        android:layout_alignBottom="@+id/textViewNrBox"
-        android:layout_alignTop="@+id/editTextNumberBox" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker3"
-        android:layout_alignTop="@+id/editTextNumber"
-        android:layout_toRightOf="@+id/editTextNumber"
-        android:layout_toEndOf="@+id/editTextNumber"
-        android:layout_alignBottom="@+id/editTextNumber" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker4"
-        android:layout_below="@+id/editTextDate"
-        android:layout_toRightOf="@+id/editTextUnit"
-        android:layout_toEndOf="@+id/editTextUnit"
-        android:layout_alignBottom="@+id/editTextDayAss" />
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
         android:src="@drawable/ic_insert_invitation_black_24dp"
         android:layout_alignTop="@+id/editTextDate"
-        android:layout_alignLeft="@+id/numberPicker4"
-        android:layout_alignStart="@+id/numberPicker4" />
+        android:layout_toRightOf="@+id/editTextDayAss"
+        android:layout_toEndOf="@+id/editTextDayAss" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/container"></FrameLayout>
 </RelativeLayout>
