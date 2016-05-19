@@ -1,4 +1,4 @@
-<<<<<<< Original<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="com.example.giacomo.farmalista">
 
 <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name"
@@ -16,26 +16,20 @@ package="com.example.giacomo.farmalista">
     <activity android:name=".UFC3" />
     <activity android:name=".UFC13" />
     <activity android:name=".UFC8" />
-    <
-    <
-    <
-    <
-    <
-    <
-    < HEAD
+
     <activity android:name=".UFC5" />
     <activity android:name=".UFC9" />
     <activity android:name=".UFC7" />
     <activity android:name=".UFC10"></activity>
-    =======
+
     <activity android:name=".UFC5"></activity>
     <activity android:name=".UFC14" />
-    >>>>>>> origin/master
+
 </application>
 
-</manifest>=======<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+</manifest><manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
 <application>
     <activity android:name="com.example.giacomo.farmalista.UFC15"></activity>
 </application>
-</manifest>>>>>>>> Added
+</manifest>
