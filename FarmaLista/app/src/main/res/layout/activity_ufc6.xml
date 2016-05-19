@@ -237,4 +237,13 @@
         android:layout_toRightOf="@+id/editTextDayAss"
         android:layout_toEndOf="@+id/editTextDayAss" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@+id/textViewUnit"
+        android:id="@+id/container"
+        android:layout_alignTop="@+id/textViewTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"></FrameLayout>
+
 </RelativeLayout>
