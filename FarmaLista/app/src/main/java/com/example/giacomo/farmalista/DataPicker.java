@@ -1,5 +1,6 @@
 package com.example.giacomo.farmalista;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,14 +15,35 @@ import android.widget.CalendarView;
 public class DataPicker extends Fragment{
     String data;
     CalendarView calendario;
+    IFragment mListener;
+
+    public interface IFragment {
+        public void closeFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.datapicker, container, false);
         calendario = (CalendarView) view.findViewById(R.id.calendarView);
 
-        data = String.valueOf(calendario.getDate());
+        calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                data = String.valueOf(calendario.getDate());
+                mListener.closeFragment();
+            }
+        });
 
         return view;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof IFragment) {
+            mListener = (IFragment) activity;
+        } else {
+            mListener = null;
+        }
     }
 }

@@ -1,5 +1,7 @@
 package com.example.giacomo.farmalista;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,13 +14,16 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UFC6 extends AppCompatActivity {
+public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
     TextView nomemedicina;
     NumberPicker quantita, scatole, dosaggio, giorni;
     String squantita, sscatole, sdosaggio, sgiorni;
     Button insert;
     ImageButton data;
     static String medicine = "";
+    DataPicker vFragment;
+    FragmentManager vManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,12 +64,24 @@ public class UFC6 extends AppCompatActivity {
         });
 
 
+        vManager = getFragmentManager();
+
         data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                vFragment = new DataPicker();
+                FragmentTransaction vTansaction = vManager.beginTransaction();
+                vTansaction.add(R.id.container, vFragment, "tag");
+                vTansaction.commit();
             }
         });
 
+    }
+
+    @Override
+    public void closeFragment() {
+        FragmentTransaction vTansaction = vManager.beginTransaction();
+        vTansaction.remove(vFragment);
+        vTansaction.commit();
     }
 }

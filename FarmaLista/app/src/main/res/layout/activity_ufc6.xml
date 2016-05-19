@@ -276,4 +276,11 @@
         android:layout_alignTop="@+id/editTextDate"
         android:layout_alignLeft="@+id/numberPicker4"
         android:layout_alignStart="@+id/numberPicker4" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/container"></FrameLayout>
 </RelativeLayout>
