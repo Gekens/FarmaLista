@@ -101,19 +101,18 @@ public class UFC3 extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_utente) {
+            Intent vIntent = new Intent(UFC3.this, UFC4.class);
+            startActivity(vIntent);
+        } else if (id == R.id.nav_insertMed) {
+            Intent vIntent = new Intent(UFC3.this, UFC6.class);
+            startActivity(vIntent);
         } else if (id == R.id.nav_contatti) {
             Intent vIntent = new Intent(UFC3.this, UFC7.class);
             startActivity(vIntent);
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_noteLeg) {
+            Intent vIntent = new Intent(UFC3.this, UFC13.class);
+            startActivity(vIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
