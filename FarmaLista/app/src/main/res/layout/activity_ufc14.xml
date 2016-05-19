@@ -92,10 +92,11 @@
         android:textColorHint="#008080"
         android:hint="Email"
         android:layout_below="@+id/editText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="27dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editTextNameMedicine"
-        android:layout_alignEnd="@+id/editTextNameMedicine" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,7 +105,7 @@
         android:id="@+id/textView6"
         android:textColor="#000000"
         android:textSize="15sp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="39dp"
         android:layout_below="@+id/editText3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -116,15 +117,14 @@
         android:layout_alignTop="@+id/textView6"
         android:layout_alignRight="@+id/editText3"
         android:layout_alignEnd="@+id/editText3"
-        android:layout_alignLeft="@+id/buttonInsert"
-        android:layout_alignStart="@+id/buttonInsert" />
+        android:layout_alignLeft="@+id/spinner3"
+        android:layout_alignStart="@+id/spinner3" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Notifica"
         android:id="@+id/textView7"
-        android:layout_marginTop="27dp"
         android:textColor="#000000"
         android:textSize="15sp"
         android:layout_below="@+id/spinner4"
