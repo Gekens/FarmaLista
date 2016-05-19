@@ -13,14 +13,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class UFC3 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ufc3);
+        mListView = (ListView) findViewById(R.id.listView);
+        ArrayList<Medicine> vMedicine = new ArrayList<>();
+
+        MedicineAdapter vAdapter= new MedicineAdapter(this,vMedicine);
+        mListView.setAdapter(vAdapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
