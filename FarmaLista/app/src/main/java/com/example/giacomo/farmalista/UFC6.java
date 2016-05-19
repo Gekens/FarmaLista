@@ -37,10 +37,7 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
         data = (ImageButton) findViewById(R.id.imageButton);
 
 
-        squantita = quantita.getDisplayedValues().toString();
-        sscatole = scatole.getDisplayedValues().toString();
-        sdosaggio = scatole.getDisplayedValues().toString();
-        sgiorni = giorni.getDisplayedValues().toString();
+
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override

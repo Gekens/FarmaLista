@@ -1,5 +1,6 @@
 package com.example.giacomo.farmalista;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,6 +30,8 @@ public class UFC3 extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent vIntent = new Intent(UFC3.this, UFC6.class);
+                startActivity(vIntent);
             }
         });
 
