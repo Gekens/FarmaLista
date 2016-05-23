@@ -58,21 +58,17 @@ public class UFC6 extends AppCompatActivity{
                 sdosaggio = dosaggio.getText().toString();
                 sgiorni = giorni.getText().toString();
 
-                sdata = dateformat.getText().toString();
-                String datasplit[] = sdata.split("/");
-                day = datasplit[0];
-                mounth = datasplit[1];
-                year = datasplit[2];
+                sdata = dateformat.getText().toString(); // prendo il testo della TextView e lo trasformo in stringa
 
-                dos = (Integer.parseInt(squantita)/Integer.parseInt(sdosaggio))*24*60*60*1000;
+                dos = (Integer.parseInt(squantita)/Integer.parseInt(sdosaggio))*24*60*60*1000; // prendo la quantità di pastiglie e il dosaggio al giorno e lo trasformo in millisecondi
 
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                 try {
-                    Date dataselezionata = formatter.parse(sdata);
-                    long mill = dataselezionata.getTime();
-                    giorniassunzione = dos + mill;
-                    datafine = new Date(giorniassunzione);
-                    sdatafine = datafine.toString();
+                    Date dataselezionata = formatter.parse(sdata); // trasformo la stringa sdata in Date
+                    long mill = dataselezionata.getTime(); // trasformo la Date in millisecondi
+                    giorniassunzione = dos + mill; // sommo il dosaggio con la Date in millisecondi
+                    datafine = new Date(giorniassunzione); // trasformo i millisecondi in Date
+                    sdatafine = datafine.toString(); // trasformo la Date in Stringa
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
