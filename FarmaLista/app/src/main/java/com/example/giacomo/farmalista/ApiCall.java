@@ -6,4 +6,5 @@ package com.example.giacomo.farmalista;
 public class ApiCall {
     public static String credenziali;
     public static String medicine;
+    public static String contatti;
 }

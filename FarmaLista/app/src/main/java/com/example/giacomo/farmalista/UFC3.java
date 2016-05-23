@@ -1,5 +1,6 @@
 package com.example.giacomo.farmalista;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,14 +13,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class UFC3 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ufc3);
+        mListView = (ListView) findViewById(R.id.listView);
+        ArrayList<Medicine> vMedicine = new ArrayList<>();
+
+        MedicineAdapter vAdapter= new MedicineAdapter(this,vMedicine);
+        mListView.setAdapter(vAdapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -29,6 +48,8 @@ public class UFC3 extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent vIntent = new Intent(UFC3.this, UFC6.class);
+                startActivity(vIntent);
             }
         });
 
@@ -80,18 +101,18 @@ public class UFC3 extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_utente) {
+            Intent vIntent = new Intent(UFC3.this, UFC4.class);
+            startActivity(vIntent);
+        } else if (id == R.id.nav_insertMed) {
+            Intent vIntent = new Intent(UFC3.this, UFC6.class);
+            startActivity(vIntent);
+        } else if (id == R.id.nav_contatti) {
+            Intent vIntent = new Intent(UFC3.this, UFC7.class);
+            startActivity(vIntent);
+        } else if (id == R.id.nav_noteLeg) {
+            Intent vIntent = new Intent(UFC3.this, UFC13.class);
+            startActivity(vIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
