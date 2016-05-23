@@ -12,6 +12,9 @@ import android.os.Bundle;
  */
 public class UFC12 extends DialogFragment {
 
+    String nomeMedicinale;
+    String giorniRimanenti;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder vBuilder = new AlertDialog.Builder(getActivity());
