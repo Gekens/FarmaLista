@@ -1,6 +1,9 @@
 package com.example.giacomo.farmalista;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,45 +11,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
+import android.widget.TextView;
+
+import java.util.Calendar;
 
 /**
  * Created by Giacomo on 19/05/2016.
  */
-public class DataPicker extends Fragment{
+public class DataPicker extends DialogFragment implements DatePickerDialog.OnDateSetListener{
     String data;
-    CalendarView calendario;
-    IFragment mListener;
-    IFragment mData;
 
-    public interface IFragment {
-        public void closeFragment();
-        public void getDate(String data);
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState){
+
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.datapicker, container, false);
-        calendario = (CalendarView) view.findViewById(R.id.calendarView);
-
-        calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                data = Integer.toString(year).concat(Integer.toString(month).concat(Integer.toString(dayOfMonth)));
-                mListener.closeFragment();
-                mData.getDate(data);
-            }
-        });
-
-        return view;
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        TextView tv = (TextView) getActivity().findViewById(R.id.textViewDate);
+        String stringOfDate = dayOfMonth + "/" + monthOfYear + "/" + year;
+        tv.setText(stringOfDate);
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        if (activity instanceof IFragment) {
-            mListener = (IFragment) activity;
-        } else {
-            mListener = null;
-        }
-    }
 }

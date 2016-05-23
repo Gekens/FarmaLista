@@ -1,5 +1,6 @@
 package com.example.giacomo.farmalista;
 
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -15,14 +16,22 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public class UFC6 extends AppCompatActivity{
     EditText nomemedicina, dosaggio, quantita, scatole, giorni;
-    String smedicina, squantita, sscatole, sdosaggio, sgiorni, sdata;
+    TextView dateformat;
+    String smedicina, squantita, sscatole, sdosaggio, sgiorni, sdata, day, mounth, year, sdatafine;
+    int gg, mm, yyyy;
+    long dos, giorniassunzione;
     Button insert;
     ImageButton data;
     static String medicine = "";
     DataPicker vFragment;
     FragmentManager vManager;
+    Date datafine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +44,41 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
         giorni = (EditText) findViewById(R.id.editTextDayAss);
         insert = (Button) findViewById(R.id.buttonInsert);
         data = (ImageButton) findViewById(R.id.imageButton);
+        dateformat = (TextView) findViewById(R.id.textViewDate);
 
 
-        smedicina = nomemedicina.getText().toString();
-        squantita = quantita.getText().toString();
-        sscatole = scatole.getText().toString();
-        sdosaggio = dosaggio.getText().toString();
-        sgiorni = giorni.getText().toString();
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                smedicina = nomemedicina.getText().toString();
+                squantita = quantita.getText().toString();
+                sscatole = scatole.getText().toString();
+                sdosaggio = dosaggio.getText().toString();
+                sgiorni = giorni.getText().toString();
+
+                sdata = dateformat.getText().toString();
+                String datasplit[] = sdata.split("/");
+                day = datasplit[0];
+                mounth = datasplit[1];
+                year = datasplit[2];
+
+                dos = (Integer.parseInt(squantita)/Integer.parseInt(sdosaggio))*24*60*60*1000;
+
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date dataselezionata = formatter.parse(sdata);
+                    long mill = dataselezionata.getTime();
+                    giorniassunzione = dos + mill;
+                    datafine = new Date(giorniassunzione);
+                    sdatafine = datafine.toString();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+
                 JSONObject obj = new JSONObject();
                 try {
                     obj.put("nome_medicina", nomemedicina);
@@ -53,7 +86,8 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
                     obj.put("scatole", sscatole);
                     obj.put("dosaggio", sdosaggio);
                     obj.put("giorni", sgiorni);
-                    obj.put("data", sdata);
+                    obj.put("data", day);
+                    obj.put("vdata", sdatafine);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -71,24 +105,13 @@ public class UFC6 extends AppCompatActivity implements DataPicker.IFragment{
         data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vFragment = new DataPicker();
-                FragmentTransaction vTansaction = vManager.beginTransaction();
-                vTansaction.add(R.id.container, vFragment, "tag");
-                vTansaction.commit();
+                DialogFragment newFragment = new DataPicker();
+                newFragment.show(getFragmentManager(),"Date Picker");
             }
         });
 
     }
 
-    @Override
-    public void closeFragment() {
-        FragmentTransaction vTansaction = vManager.beginTransaction();
-        vTansaction.remove(vFragment);
-        vTansaction.commit();
-    }
 
-    @Override
-    public void getDate(String data) {
-        sdata = data;
-    }
+
 }

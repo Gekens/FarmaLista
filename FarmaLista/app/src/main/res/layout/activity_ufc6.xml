@@ -108,11 +108,11 @@
         android:layout_height="wrap_content"
         android:text="Numero"
         android:id="@+id/textViewNum"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textColor="#000000"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/editTextNumber"
+        android:layout_alignStart="@+id/editTextNumber" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -120,48 +120,15 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editTextNumber"
-        android:layout_below="@+id/textViewNum"
+        android:hint="0"
+        android:textColor="#008080"
+        android:textColorHighlight="#008080"
+        android:textColorHint="#008080"
+        android:layout_alignBottom="@+id/spinner5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textViewNum"
-        android:layout_alignEnd="@+id/textViewNum"
-        android:hint="0"
-        android:textColor="#008080"
-        android:textColorHighlight="#008080"
-        android:textColorHint="#008080" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Unità di misura"
-        android:id="@+id/textViewUnit"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        android:layout_below="@+id/textViewNum"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton" />
-
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextUnit"
-        android:hint="0"
-        android:textColorHint="#008080"
-        android:textColorHighlight="#008080"
-        android:textColor="#008080"
-        android:layout_below="@+id/textViewNum"
-        android:layout_alignRight="@+id/textViewDos"
-        android:layout_alignEnd="@+id/textViewDos" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_below="@+id/textViewUnit"
-        android:layout_toEndOf="@+id/editTextUnit"
-        android:layout_alignBottom="@+id/editTextUnit" />
+        android:layout_alignRight="@+id/textViewQtaTot"
+        android:layout_alignEnd="@+id/textViewQtaTot" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -175,25 +142,10 @@
         android:textColor="#000000"
         android:textSize="15sp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/editTextDate"
-        android:layout_alignBottom="@+id/textViewStartAss"
-        android:layout_toLeftOf="@+id/spinner"
-        android:hint="Data"
-        android:textColor="#008080"
-        android:textColorHighlight="#008080"
-        android:textColorHint="#008080"
-        android:layout_alignLeft="@+id/buttonInsert"
-        android:layout_alignStart="@+id/buttonInsert" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Giorni Assunzione"
+        android:text="Giorni Preavviso"
         android:id="@+id/textViewDayAss"
         android:layout_below="@+id/textViewStartAss"
         android:layout_alignParentLeft="true"
@@ -215,8 +167,7 @@
         android:layout_alignBottom="@+id/textViewDayAss"
         android:layout_alignRight="@+id/textViewDos"
         android:layout_alignEnd="@+id/textViewDos"
-        android:layout_alignLeft="@+id/editTextDate"
-        android:layout_alignStart="@+id/editTextDate" />
+        android:layout_toEndOf="@+id/textViewDayAss" />
 
     <Button
         android:layout_width="wrap_content"
@@ -233,17 +184,29 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
         android:src="@drawable/ic_insert_invitation_black_24dp"
-        android:layout_alignTop="@+id/editTextDate"
+        android:layout_above="@+id/textViewDayAss"
         android:layout_toRightOf="@+id/editTextDayAss"
         android:layout_toEndOf="@+id/editTextDayAss" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toStartOf="@+id/textViewUnit"
-        android:id="@+id/container"
-        android:layout_alignTop="@+id/textViewTitle"
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="01/01/2001"
+        android:id="@+id/textViewDate"
+        android:textSize="20dp"
+        android:layout_alignBottom="@+id/imageButton"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_toStartOf="@+id/imageButton" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner5"
+        android:layout_alignTop="@+id/textViewNum"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"></FrameLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/textViewTitle"
+        android:layout_toEndOf="@+id/textViewTitle" />
+
 
 </RelativeLayout>
