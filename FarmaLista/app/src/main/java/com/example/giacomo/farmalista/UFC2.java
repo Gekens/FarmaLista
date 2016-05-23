@@ -1,16 +1,14 @@
 package com.example.giacomo.farmalista;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,7 +17,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.security.MessageDigest;
 
 
@@ -125,16 +122,18 @@ public class UFC2 extends AppCompatActivity {
                     // istruzioni per scrivere nel db remoto
                     try {
                         // Creo l'oggetto URL che rappresenta l'indirizzo della pagina da richiamare
-                        URL paginaURL = new URL("http://172.23.196.42:3000/utente");
+                        URL paginaURL = new URL("http://192.168.246.1:3000/utente");
 
                         // creo l'oggetto HttpURLConnection paragonabile all'apertura di una finestra del browser
+                        // QUESTO PER DEFAULT è UNA GET
                         HttpURLConnection client = (HttpURLConnection) paginaURL.openConnection();
-
-                        // codifico dati da inviare
-                        String datiPost = obj.toString();// URLEncoder.encode("datanascita", "UTF-8") + "=" + URLEncoder.encode(datainserita, "UTF-8");
 
                         // se devo inviare il dato in POST
                         client.setDoOutput(true);
+
+                        // codifico dati da inviare
+                        String datiPost = obj.toString();// URLEncoder.encode("datanascita", "UTF-8") + "=" + URLEncoder.encode(datainserita, "UTF-8");
+                        //String datiPost = URLEncoder.encode(obj.toString(),"utf-8");
 
                         // A questo punto scrivo il dato nello stream di Uscita:
                         OutputStreamWriter wr = new OutputStreamWriter(client.getOutputStream());
