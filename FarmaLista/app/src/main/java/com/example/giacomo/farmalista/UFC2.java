@@ -9,9 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 
 
@@ -59,6 +67,8 @@ public class UFC2 extends AppCompatActivity {
             }
         });
 
+
+
         registrati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +76,22 @@ public class UFC2 extends AppCompatActivity {
                 // verifico che la mail sia valida
                 if (email.getText().toString().length() != 0) {
                     emailString = email.getText().toString();
+
+                    // trasformo la stringa mail in un array di caratteri
+                    char[] tmp = emailString.toCharArray();
+
+                    /*
+                    // stampa di prova
+                    Log.d("mail","la mail inserita e': ");
+                    for (int i = 0; i < tmp.length; i++){
+                        Log.d("mail", String.valueOf(tmp[i]));
+                    }
+                    */
+
+                    // controllo che la mail abbia un formato valido:
+                    // dei caratteri, la @, altri caratteri, il punto e altri caratteri
+
+
                 } else {
                     Toast.makeText(UFC2.this, "Inserisci la mail", Toast.LENGTH_SHORT).show();
                 }
@@ -93,10 +119,35 @@ public class UFC2 extends AppCompatActivity {
                     }
 
                     // al momento salvo il json in una variabile globale di tipo string
-                    // qui dovrei mettere le istruzioni per scrivere nel db remoto
-
                     credenziali = obj.toString();
                     ApiCall.credenziali = credenziali;
+
+                    // istruzioni per scrivere nel db remoto
+                    try {
+                        // Creo l'oggetto URL che rappresenta l'indirizzo della pagina da richiamare
+                        URL paginaURL = new URL("http://172.23.196.42:3000/utente");
+
+                        // creo l'oggetto HttpURLConnection paragonabile all'apertura di una finestra del browser
+                        HttpURLConnection client = (HttpURLConnection) paginaURL.openConnection();
+
+                        // codifico dati da inviare
+                        String datiPost = obj.toString();// URLEncoder.encode("datanascita", "UTF-8") + "=" + URLEncoder.encode(datainserita, "UTF-8");
+
+                        // se devo inviare il dato in POST
+                        client.setDoOutput(true);
+
+                        // A questo punto scrivo il dato nello stream di Uscita:
+                        OutputStreamWriter wr = new OutputStreamWriter(client.getOutputStream());
+                        wr.write(datiPost);
+                        wr.flush();
+
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
                     // stampa di controllo
                     Log.d("json",credenziali);
 
