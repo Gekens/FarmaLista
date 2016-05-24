@@ -147,6 +147,7 @@
         android:layout_alignTop="@+id/textViewSex"
         android:layout_above="@+id/textViewCodTitle"
         android:layout_alignRight="@+id/textViewCodTitle"
+        android:entries="@array/sesso"/>
         android:layout_alignEnd="@+id/textViewCodTitle" />
 
     <TextView

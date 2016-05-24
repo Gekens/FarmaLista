@@ -44,5 +44,10 @@
         "quel soggetto; indicare, inoltre, il sito della rete"
         </string>
 
+    <string-array name="sesso">
+        <item>M</item>
+        <item>F</item>
+    </string-array>
+
 
 </resources>
