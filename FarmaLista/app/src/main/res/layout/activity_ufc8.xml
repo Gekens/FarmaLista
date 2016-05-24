@@ -18,10 +18,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorAccent"
             android:elevation="4dp"
             app:contentInsetEnd="0dp"
             app:contentInsetStart="0dp"
+            android:theme="@style/AppTheme"
             app:theme="@style/ToolBarStyle"/>
         <FrameLayout
             android:id="@+id/container"
@@ -30,7 +31,7 @@
 
     </LinearLayout>
     <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/view_nav"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
