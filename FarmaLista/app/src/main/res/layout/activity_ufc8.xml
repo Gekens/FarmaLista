@@ -22,8 +22,7 @@
             android:elevation="4dp"
             app:contentInsetEnd="0dp"
             app:contentInsetStart="0dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:theme="@style/ToolBarStyle"/>
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
