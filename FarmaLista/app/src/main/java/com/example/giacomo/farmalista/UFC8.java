@@ -110,8 +110,8 @@ public class UFC8 extends ActionBarActivity implements NavigationView.OnNavigati
             vTransaction.replace(R.id.container,lista_contatti,"lc");
             vTransaction.commit();
         } else if (id == R.id.nav_noteLeg) {
-            //Intent vIntent = new Intent(UFC3.this, UFC13.class);
-            //startActivity(vIntent);
+            Intent vIntent = new Intent(UFC8.this, UFC13.class);
+            startActivity(vIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_container);
