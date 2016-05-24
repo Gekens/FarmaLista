@@ -73,7 +73,7 @@ public class UFC11 extends AppCompatActivity {
 
                     // verifico che email e password siano quelle dell'utente
                     if (email.getText().toString().equals(mailDB) && passwordLogin.equals(pswDB)) {
-                        Intent intent = new Intent(UFC11.this, UFC3.class);
+                        Intent intent = new Intent(UFC11.this, UFC8.class);
                         startActivity(intent);
                         finish();
                     } else {
