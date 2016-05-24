@@ -113,6 +113,11 @@ public class UFC8 extends ActionBarActivity implements NavigationView.OnNavigati
             Intent vIntent = new Intent(UFC8.this, UFC13.class);
             startActivity(vIntent);
         }
+        else if (id == R.id.nav_logout) {
+            Intent vIntent = new Intent(UFC8.this, UFC1.class);
+            startActivity(vIntent);
+            finish();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_container);
         drawer.closeDrawer(GravityCompat.START);
