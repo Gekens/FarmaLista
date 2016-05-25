@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".UFC1"
-            android:label="Lista Medicinale"
+            android:label="FarmaLista"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

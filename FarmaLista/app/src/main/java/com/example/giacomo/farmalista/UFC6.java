@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,7 +32,6 @@ public class UFC6 extends AppCompatActivity{
     Button insert;
     ImageButton data;
     static String medicine = "";
-    DataPicker vFragment;
     FragmentManager vManager;
     Date datafine;
 
@@ -49,12 +49,8 @@ public class UFC6 extends AppCompatActivity{
         dateformat = (TextView) findViewById(R.id.textViewDate);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner5);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.tipo_medicine, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipo_medicine, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
 
@@ -67,41 +63,60 @@ public class UFC6 extends AppCompatActivity{
                 sscatole = scatole.getText().toString();
                 sdosaggio = dosaggio.getText().toString();
                 sgiorni = giorni.getText().toString();
-
                 sdata = dateformat.getText().toString(); // prendo il testo della TextView e lo trasformo in stringa
 
-                dos = (Integer.parseInt(squantita)/Integer.parseInt(sdosaggio))*24*60*60*1000; // prendo la quantità di pastiglie e il dosaggio al giorno e lo trasformo in millisecondi
-
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                try {
-                    Date dataselezionata = formatter.parse(sdata); // trasformo la stringa sdata in Date
-                    long mill = dataselezionata.getTime(); // trasformo la Date in millisecondi
-                    giorniassunzione = dos + mill; // sommo il dosaggio con la Date in millisecondi
-                    datafine = new Date(giorniassunzione); // trasformo i millisecondi in Date
-                    sdatafine = datafine.toString(); // trasformo la Date in Stringa
-                } catch (ParseException e) {
-                    e.printStackTrace();
+                if (smedicina.length() == 0) {
+                    Toast.makeText(UFC6.this, "Inserisci il nome del medicinale", Toast.LENGTH_SHORT).show();
                 }
-
-
-
-                JSONObject obj = new JSONObject();
-                try {
-                    obj.put("nome_medicina", smedicina);
-                    obj.put("quantita", squantita);
-                    obj.put("scatole", sscatole);
-                    obj.put("dosaggio", sdosaggio);
-                    obj.put("giorni", sgiorni);
-                    obj.put("data", day);
-                    obj.put("vdata", sdatafine);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                else if (squantita.length() == 0) {
+                    Toast.makeText(UFC6.this, "Inserisci la quantità", Toast.LENGTH_SHORT).show();
                 }
-                medicine = obj.toString();
-                ApiCall.medicine += medicine;
-                // stampa di controllo
-                Log.d("json",medicine);
+                else if (sscatole.length() == 0) {
+                    Toast.makeText(UFC6.this, "Inserisci il numero di scatole", Toast.LENGTH_SHORT).show();
+                }
+                else if (sdosaggio.length() == 0) {
+                    Toast.makeText(UFC6.this, "Inserisci il dosaggio", Toast.LENGTH_SHORT).show();
+                }
+                else if (sdata.length() == 0) {
+                    Toast.makeText(UFC6.this, "Inserisci la data", Toast.LENGTH_SHORT).show();
+                }
+                else if (sgiorni.length() == 0) {
+                    Toast.makeText(UFC6.this, "Inserisci i giorni di preavviso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UFC6.this, "Controlla di aver inserito la tipologia di medicine corretta", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    try {
+                        dos = (Integer.parseInt(squantita) / Integer.parseInt(sdosaggio)) * 24 * 60 * 60 * 1000; // prendo la quantità di pastiglie e il dosaggio al giorno e lo trasformo in millisecondi
+
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                        Date dataselezionata = formatter.parse(sdata); // trasformo la stringa sdata in Date
+                        long mill = dataselezionata.getTime(); // trasformo la Date in millisecondi
+                        giorniassunzione = dos + mill; // sommo il dosaggio con la Date in millisecondi
+                        datafine = new Date(giorniassunzione); // trasformo i millisecondi in Date
+                        sdatafine = datafine.toString(); // trasformo la Date in Stringa
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    JSONObject obj = new JSONObject();
+                    try {
+                        obj.put("nome_medicina", smedicina);
+                        obj.put("quantita", squantita);
+                        obj.put("scatole", sscatole);
+                        obj.put("dosaggio", sdosaggio);
+                        obj.put("giorni", sgiorni);
+                        obj.put("data", day);
+                        obj.put("vdata", sdatafine);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    medicine = obj.toString();
+                    ApiCall.medicine += medicine;
+                    // stampa di controllo
+                    Log.d("json", medicine);
+                }
             }
         });
 
