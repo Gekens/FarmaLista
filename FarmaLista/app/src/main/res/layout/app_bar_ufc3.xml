@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.giacomo.farmalista.UFC3">
 
-    
+
 
     <include layout="@layout/content_ufc3" />
 
