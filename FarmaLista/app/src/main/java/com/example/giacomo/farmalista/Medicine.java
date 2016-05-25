@@ -1,9 +1,16 @@
 package com.example.giacomo.farmalista;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Objects;
+
 /**
  * Created by Utente on 19/05/2016.
  */
 public class Medicine {
+static String medicina;
 
 
     private String name;
@@ -14,7 +21,7 @@ public class Medicine {
     public Medicine() {
     }
 
-    public Medicine(String name, String hour, String finishDate) {
+    public Medicine(String name, String hour, String finishDate){
         this.name = name;
         this.hour = hour;
         this.finishDate = finishDate;

@@ -3,10 +3,13 @@ package com.example.giacomo.farmalista;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -113,9 +116,14 @@ public class UFC6 extends AppCompatActivity{
                         e.printStackTrace();
                     }
                     medicine = obj.toString();
-                    ApiCall.medicine += medicine;
+                    ApiCall.medicine += medicine + "\n";
                     // stampa di controllo
                     Log.d("json", medicine);
+                    Fragment_UFC3 vFragment = new Fragment_UFC3();
+                    FragmentManager vManager = getFragmentManager();
+                    FragmentTransaction vTransaction = vManager.beginTransaction();
+                    vTransaction.replace(R.id.container, vFragment, "ufc");
+                    vTransaction.commit();
                 }
             }
         });

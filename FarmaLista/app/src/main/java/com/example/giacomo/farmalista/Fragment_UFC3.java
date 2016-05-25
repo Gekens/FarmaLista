@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -24,15 +28,31 @@ public class Fragment_UFC3 extends Fragment {
     ListView mListView;
     Fragment_UFC5 modifica_medicinale;
     FragmentManager vManager;
+    String medicina, name, hour, finishDate;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View vView = inflater.inflate(R.layout.activity_ufc3,container,false);
         vManager = getFragmentManager();
+        medicina = ApiCall.medicine;
+        JSONArray array = null;
+        try {
+            array = new JSONArray(medicina);
+            for(int i=0; i<array.length(); i++){
+                JSONObject jsonObj  = array.getJSONObject(i);
+                name = jsonObj.getString("nome_medicina");
+                hour = jsonObj.getString("dosaggio");
+                finishDate = jsonObj.getString("vdata");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         mListView = (ListView) vView.findViewById(R.id.listView);
         ArrayList<Medicine> vMedicine = new ArrayList<>();
+        vMedicine.add(new Medicine(name, hour, finishDate));
 
         MedicineAdapter vAdapter= new MedicineAdapter(vView.getContext(),vMedicine);
         mListView.setAdapter(vAdapter);

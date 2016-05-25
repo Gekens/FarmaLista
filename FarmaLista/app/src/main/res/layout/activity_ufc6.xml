@@ -205,5 +205,12 @@
         android:layout_toRightOf="@+id/textViewTitle"
         android:layout_toEndOf="@+id/textViewTitle" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"></FrameLayout>
+
 
 </RelativeLayout>
