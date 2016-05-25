@@ -12,11 +12,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.security.MessageDigest;
 
 
@@ -116,9 +111,12 @@ public class UFC2 extends AppCompatActivity {
                     }
 
                     // al momento salvo il json in una variabile globale di tipo string
-                    credenziali = obj.toString();
-                    ApiCall.credenziali = credenziali;
+                    //credenziali = obj.toString();
+                    //ApiCall.credenziali = credenziali;
 
+                    ApiCall api = new ApiCall();
+                   api.execute(obj.toString());
+                    /*
                     // istruzioni per scrivere nel db remoto
                     try {
                         // Creo l'oggetto URL che rappresenta l'indirizzo della pagina da richiamare
@@ -145,6 +143,7 @@ public class UFC2 extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    */
 
 
                     // stampa di controllo
