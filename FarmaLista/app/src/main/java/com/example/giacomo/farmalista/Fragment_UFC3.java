@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class Fragment_UFC3 extends Fragment {
 
     ListView mListView;
-    Fragment_UFC6 inserisci_medicinale;
     Fragment_UFC5 modifica_medicinale;
     FragmentManager vManager;
 
@@ -52,10 +51,8 @@ public class Fragment_UFC3 extends Fragment {
             public void onClick(View view) {
                 Snackbar.make(view, "Inserisci un nuovo medicinale", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                inserisci_medicinale=new Fragment_UFC6();
-                FragmentTransaction vTransaction = vManager.beginTransaction();
-                vTransaction.replace(R.id.container,inserisci_medicinale,"im");
-                vTransaction.commit();
+                Intent vIntent = new Intent(getActivity().getBaseContext(), UFC6.class);
+                startActivity(vIntent);
             }
         });
         return vView;

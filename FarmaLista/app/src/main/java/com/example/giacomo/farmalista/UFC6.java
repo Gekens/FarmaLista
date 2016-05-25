@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.NumberPicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -46,6 +48,14 @@ public class UFC6 extends AppCompatActivity{
         data = (ImageButton) findViewById(R.id.imageButton);
         dateformat = (TextView) findViewById(R.id.textViewDate);
 
+        Spinner spinner = (Spinner) findViewById(R.id.spinner5);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.tipo_medicine, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
 
 
         insert.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +87,7 @@ public class UFC6 extends AppCompatActivity{
 
                 JSONObject obj = new JSONObject();
                 try {
-                    obj.put("nome_medicina", nomemedicina);
+                    obj.put("nome_medicina", smedicina);
                     obj.put("quantita", squantita);
                     obj.put("scatole", sscatole);
                     obj.put("dosaggio", sdosaggio);

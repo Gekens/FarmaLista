@@ -23,7 +23,6 @@ public class UFC8 extends ActionBarActivity implements NavigationView.OnNavigati
     //istanzio il fragment e il manager dello stesso, l'obiettivo è che nell'UFC 8 all'inizio ci sia la Lista dei Medicinali.
     Fragment_UFC3 lista_medicinali;
     Fragment_UFC4 profilo_utente;
-    Fragment_UFC6 inserisci_medicinale;
     Fragment_UFC7 lista_contatti;
     FragmentManager vManager;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -100,10 +99,8 @@ public class UFC8 extends ActionBarActivity implements NavigationView.OnNavigati
             vTransaction.replace(R.id.container,profilo_utente,"pu");
             vTransaction.commit();
         } else if (id == R.id.nav_insertMed) {
-            inserisci_medicinale=new Fragment_UFC6();
-            FragmentTransaction vTransaction = vManager.beginTransaction();
-            vTransaction.replace(R.id.container,inserisci_medicinale,"im");
-            vTransaction.commit();
+            Intent vIntent = new Intent(UFC8.this, UFC6.class);
+            startActivity(vIntent);
         } else if (id == R.id.nav_contatti) {
             lista_contatti=new Fragment_UFC7();
             FragmentTransaction vTransaction = vManager.beginTransaction();

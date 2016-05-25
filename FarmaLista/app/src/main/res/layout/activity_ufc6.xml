@@ -115,7 +115,7 @@
         android:layout_alignStart="@+id/editTextNumber" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
@@ -124,11 +124,9 @@
         android:textColor="#008080"
         android:textColorHighlight="#008080"
         android:textColorHint="#008080"
-        android:layout_alignBottom="@+id/spinner5"
+        android:layout_below="@+id/textViewNum"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textViewQtaTot"
-        android:layout_alignEnd="@+id/textViewQtaTot" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,7 +153,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
@@ -165,9 +163,8 @@
         android:textColorHighlight="#008080"
         android:textColorHint="#008080"
         android:layout_alignBottom="@+id/textViewDayAss"
-        android:layout_alignRight="@+id/textViewDos"
-        android:layout_alignEnd="@+id/textViewDos"
-        android:layout_toEndOf="@+id/textViewDayAss" />
+        android:layout_alignLeft="@+id/textViewDate"
+        android:layout_alignStart="@+id/textViewDate" />
 
     <Button
         android:layout_width="wrap_content"
@@ -184,17 +181,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
         android:src="@drawable/ic_insert_invitation_black_24dp"
-        android:layout_above="@+id/textViewDayAss"
-        android:layout_toRightOf="@+id/editTextDayAss"
-        android:layout_toEndOf="@+id/editTextDayAss" />
+        android:layout_alignBottom="@+id/textViewDate"
+        android:layout_toRightOf="@+id/textViewDos"
+        android:layout_toEndOf="@+id/textViewDos" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="01/01/2001"
         android:id="@+id/textViewDate"
         android:textSize="20dp"
-        android:layout_alignBottom="@+id/imageButton"
+        android:layout_above="@+id/textViewDayAss"
         android:layout_toLeftOf="@+id/imageButton"
         android:layout_toStartOf="@+id/imageButton" />
 
