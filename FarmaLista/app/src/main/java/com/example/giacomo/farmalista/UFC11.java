@@ -43,14 +43,34 @@ public class UFC11 extends AppCompatActivity {
                     // con quella inserita in fase di registrazione e criptata poi salvata dentro la variabile
                     // statica ApiCall.credenziali
                     String passwordLogin = UFC2.md5(password.getText().toString());
+                    // salvo in una stringa la mail inserita dall'utente
+                    String emailLogin = email.getText().toString();
 
                     // faccio una richiesta al database remoto che mi risponde con una stringa json che al momento
                     // è simulata dalla variabile globale stringa Apical.credenziali, da questa stringa ricavo un oggetto
                     // json dal quale prendo le proprietà che mi servono per verificare l'identità dell'utente
-                    Log.d("json",ApiCall.credenziali);
+                    //Log.d("json",ApiCall.credenziali);
+
 
                     String mailDB = null;
                     String pswDB = null;
+
+                    // creo un jsonobject con la mail e password inserite dall'utente
+                    JSONObject obj = new JSONObject();
+                    try {
+                        obj.put("email", emailLogin);
+                        obj.put("password", passwordLogin);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    // al momento salvo il json in una variabile globale di tipo string
+                    //credenziali = obj.toString();
+                    //ApiCall.credenziali = credenziali;
+
+                    // istruzioni per scrivere nel db remoto
+                    ApiCall api = new ApiCall();
+                    api.execute(obj.toString());
 
                     try {
                         mObjJson = new JSONObject(ApiCall.credenziali);

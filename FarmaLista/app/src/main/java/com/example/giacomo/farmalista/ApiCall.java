@@ -25,10 +25,11 @@ public class ApiCall extends AsyncTask<String,String,String> {
     protected String doInBackground(String... params) {
         String JsonResponse = null;
         String JsonDATA = params[0];
+        String indirizzo = params[1];
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         try {
-            URL url = new URL("http://172.23.196.64:3000/todos");
+            URL url = new URL(indirizzo);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
             // is output buffer writter

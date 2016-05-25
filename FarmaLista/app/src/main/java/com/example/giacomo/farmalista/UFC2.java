@@ -116,7 +116,7 @@ public class UFC2 extends AppCompatActivity {
 
                     // istruzioni per scrivere nel db remoto
                     ApiCall api = new ApiCall();
-                   api.execute(obj.toString());
+                    api.execute(obj.toString(),"http://172.23.196.64:3000/todos");
 
 
                     // stampa di controllo
