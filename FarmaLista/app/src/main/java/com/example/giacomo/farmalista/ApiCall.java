@@ -35,13 +35,13 @@ public class ApiCall extends AsyncTask<String,String,String> {
             urlConnection.setRequestMethod("POST");
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestProperty("Accept", "application/json");
-//set headers and method
+            //set headers and method
             Writer writer = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
             writer.write(JsonDATA);
-// json data
+            // json data
             writer.close();
             InputStream inputStream = urlConnection.getInputStream();
-//input stream
+            //input stream
             StringBuffer buffer = new StringBuffer();
             if (inputStream == null) {
                 // Nothing to do.
@@ -57,7 +57,7 @@ public class ApiCall extends AsyncTask<String,String,String> {
                 return null;
             }
             JsonResponse = buffer.toString();
-//response data
+            //response data
             Log.i("tag",JsonResponse);
 
             try {

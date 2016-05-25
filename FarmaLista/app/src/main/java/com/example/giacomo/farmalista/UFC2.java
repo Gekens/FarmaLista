@@ -114,36 +114,9 @@ public class UFC2 extends AppCompatActivity {
                     //credenziali = obj.toString();
                     //ApiCall.credenziali = credenziali;
 
+                    // istruzioni per scrivere nel db remoto
                     ApiCall api = new ApiCall();
                    api.execute(obj.toString());
-                    /*
-                    // istruzioni per scrivere nel db remoto
-                    try {
-                        // Creo l'oggetto URL che rappresenta l'indirizzo della pagina da richiamare
-                        URL paginaURL = new URL("http://192.168.246.1:3000/utente");
-
-                        // creo l'oggetto HttpURLConnection paragonabile all'apertura di una finestra del browser
-                        // QUESTO PER DEFAULT è UNA GET
-                        HttpURLConnection client = (HttpURLConnection) paginaURL.openConnection();
-
-                        // se devo inviare il dato in POST
-                        client.setDoOutput(true);
-
-                        // codifico dati da inviare
-                        String datiPost = obj.toString();// URLEncoder.encode("datanascita", "UTF-8") + "=" + URLEncoder.encode(datainserita, "UTF-8");
-                        //String datiPost = URLEncoder.encode(obj.toString(),"utf-8");
-
-                        // A questo punto scrivo il dato nello stream di Uscita:
-                        OutputStreamWriter wr = new OutputStreamWriter(client.getOutputStream());
-                        wr.write(datiPost);
-                        wr.flush();
-
-                    } catch (MalformedURLException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    */
 
 
                     // stampa di controllo
