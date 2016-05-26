@@ -91,6 +91,9 @@ public class UFC2 extends AppCompatActivity {
                 // verifico di aver inserito le password e se queste coincidono
                 if (password.getText().toString().length() != 0
                         && password.getText().toString().equals(confermaPassword.getText().toString())) {
+
+                    // verifico che la lunghezza della password sia > di 8 caratteri
+
                     passwordString = password.getText().toString();
 
                     passwordString = md5(passwordString);
@@ -116,7 +119,7 @@ public class UFC2 extends AppCompatActivity {
 
                     // istruzioni per scrivere nel db remoto
                     ApiCall api = new ApiCall();
-                    api.execute(obj.toString(),"http://172.23.196.64:3000/todos");
+                    api.execute(obj.toString(),"http://172.23.196.64:3000/todos","POST");
 
 
                     // stampa di controllo

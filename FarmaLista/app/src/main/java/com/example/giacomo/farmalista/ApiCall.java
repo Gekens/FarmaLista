@@ -26,6 +26,7 @@ public class ApiCall extends AsyncTask<String,String,String> {
         String JsonResponse = null;
         String JsonDATA = params[0];
         String indirizzo = params[1];
+        String chiamata = params[2];
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         try {
@@ -33,7 +34,7 @@ public class ApiCall extends AsyncTask<String,String,String> {
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
             // is output buffer writter
-            urlConnection.setRequestMethod("POST");
+            urlConnection.setRequestMethod(chiamata);
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestProperty("Accept", "application/json");
             //set headers and method
