@@ -21,6 +21,16 @@ public class ApiCall extends AsyncTask<String,String,String> {
     public static String medicine;
     public static String contatti;
 
+    public interface AsyncResponse {
+        void processFinish(String output);
+    }
+
+    public AsyncResponse delegate = null;
+
+    public ApiCall(AsyncResponse delegate){
+        this.delegate = delegate;
+    }
+
     @Override
     protected String doInBackground(String... params) {
         String JsonResponse = null;
@@ -92,5 +102,6 @@ public class ApiCall extends AsyncTask<String,String,String> {
 
     @Override
     protected void onPostExecute(String s) {
+        delegate.processFinish(s);
     }
 }

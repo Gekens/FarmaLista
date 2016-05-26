@@ -69,15 +69,35 @@ public class UFC11 extends AppCompatActivity {
                     //ApiCall.credenziali = credenziali;
 
                     // istruzioni per scrivere nel db remoto
-                    ApiCall api = new ApiCall();
-                    api.execute(obj.toString());
+                    ApiCall api = new ApiCall(new ApiCall.AsyncResponse() {
+                        @Override
+                        public void processFinish(String output) {
+                            Log.d("out",output);
+                            if (output.equals("true")){
+                                Intent intent = new Intent(UFC11.this, UFC8.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                            else {
+                                Toast.makeText(UFC11.this, "Non sei registrato", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                    api.execute(obj.toString(),"http://172.23.196.71:3000/login","POST");
+
+
+
+
+
+
+
 
                     try {
-                        mObjJson = new JSONObject(ApiCall.credenziali);
+                        //mObjJson = new JSONObject(ApiCall.credenziali);
 
                         // stampe di prova
-                        Log.d("json",mObjJson.get("email").toString());
-                        Log.d("json",mObjJson.get("password").toString());
+                        //Log.d("json",mObjJson.get("email").toString());
+                        //Log.d("json",mObjJson.get("password").toString());
 
 
                         // recupero mail e password dal json
