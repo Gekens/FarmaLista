@@ -83,7 +83,7 @@ public class UFC11 extends AppCompatActivity {
                             }
                         }
                     });
-                    api.execute(obj.toString(),"http://172.23.196.71:3000/login","POST");
+                    api.execute(obj.toString(),"http://10.0.2.2:3000/login","POST");
 
 
 
