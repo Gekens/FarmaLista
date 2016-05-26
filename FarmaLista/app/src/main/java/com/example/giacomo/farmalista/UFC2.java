@@ -88,23 +88,29 @@ public class UFC2 extends AppCompatActivity {
                     Toast.makeText(UFC2.this, "Inserisci la mail", Toast.LENGTH_SHORT).show();
                 }
 
-                // verifico di aver inserito le password e se queste coincidono
-                if (password.getText().toString().length() != 0
-                        && password.getText().toString().equals(confermaPassword.getText().toString())) {
+                // verifico che la lunghezza della password sia > di 8 caratteri
+                if (password.getText().toString().length() >= 8) {
 
-                    // verifico che la lunghezza della password sia > di 8 caratteri
+                    // verifico di aver inserito le password e se queste coincidono
+                    if (password.getText().toString().length() != 0
+                            && password.getText().toString().equals(confermaPassword.getText().toString())) {
 
-                    passwordString = password.getText().toString();
+                        passwordString = password.getText().toString();
 
-                    passwordString = md5(passwordString);
-                } else {
-                    Toast.makeText(UFC2.this, "Le password non coincidono", Toast.LENGTH_SHORT).show();
+                        passwordString = md5(passwordString);
+                    } else {
+                        Toast.makeText(UFC2.this, "Le password non coincidono", Toast.LENGTH_SHORT).show();
+                    }
+                } else { // se la password è minore di 8 caratteri
+                    Toast.makeText(UFC2.this, "La password deve avere almeno 8 caratteri", Toast.LENGTH_SHORT).show();
+                    password.setText("");
+                    confermaPassword.setText("");
                 }
 
                 // se la mail e le password sono state correttamente inserite ...
                 if (emailString != null && passwordString != null) {
-                    // genero il json che verrà salvato nel database
 
+                    // genero il json che verrà salvato nel database
                     JSONObject obj = new JSONObject();
                     try {
                         obj.put("email", emailString);
@@ -119,6 +125,7 @@ public class UFC2 extends AppCompatActivity {
 
                     // istruzioni per scrivere nel db remoto
                     ApiCall api = new ApiCall();
+                    // il primo parametro è l'oggetto, il secondo è l'indirizzo del backend, il terzo è il tipo di richiesta
                     api.execute(obj.toString(),"http://172.23.196.64:3000/todos","POST");
 
 
