@@ -124,7 +124,12 @@ public class UFC2 extends AppCompatActivity {
                     //ApiCall.credenziali = credenziali;
 
                     // istruzioni per scrivere nel db remoto
-                    ApiCall api = new ApiCall();
+                    ApiCall api = new ApiCall(new ApiCall.AsyncResponse() {
+                        @Override
+                        public void processFinish(String output) {
+                            
+                        }
+                    });
                     // il primo parametro è l'oggetto, il secondo è l'indirizzo del backend, il terzo è il tipo di richiesta
                     api.execute(obj.toString(),"http://172.23.196.64:3000/todos","POST");
 
