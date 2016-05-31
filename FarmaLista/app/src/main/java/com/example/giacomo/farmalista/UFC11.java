@@ -64,6 +64,7 @@ public class UFC11 extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
+
                     // al momento salvo il json in una variabile globale di tipo string
                     //credenziali = obj.toString();
                     //ApiCall.credenziali = credenziali;
@@ -72,46 +73,38 @@ public class UFC11 extends AppCompatActivity {
                     ApiCall api = new ApiCall(new ApiCall.AsyncResponse() {
                         @Override
                         public void processFinish(String output) {
-                            Log.d("out",output);
-                            if (output.equals("true")){
+                            Log.d("out", output);
+                            if (output.equals("true")) {
                                 Intent intent = new Intent(UFC11.this, UFC8.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(UFC11.this, "Non sei registrato", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-                    api.execute(obj.toString(),"http://10.0.2.2:3000/login","POST");
+                    api.execute(obj.toString(), "http://10.0.2.2:3000/login", "POST");
+                }
+
+
+                //try {
+                //mObjJson = new JSONObject(ApiCall.credenziali);
+
+                // stampe di prova
+                //Log.d("json",mObjJson.get("email").toString());
+                //Log.d("json",mObjJson.get("password").toString());
+
+                //mailDB = mObjJson.get("email").toString();
+                //pswDB = mObjJson.get("password").toString();
+
+                //} catch (JSONException e) {
+                //  e.printStackTrace();
+                //mObjJson = null;
+                //}
 
 
 
-
-
-
-
-
-                    try {
-                        //mObjJson = new JSONObject(ApiCall.credenziali);
-
-                        // stampe di prova
-                        //Log.d("json",mObjJson.get("email").toString());
-                        //Log.d("json",mObjJson.get("password").toString());
-
-
-                        // recupero mail e password dal json
-                        mailDB = mObjJson.get("email").toString();
-                        pswDB = mObjJson.get("password").toString();
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        mObjJson = null;
-                    }
-
-
-
-                    // verifico che email e password siano quelle dell'utente
+                   /* // verifico che email e password siano quelle dell'utente
                     if (email.getText().toString().equals(mailDB) && passwordLogin.equals(pswDB)) {
                         Intent intent = new Intent(UFC11.this, UFC8.class);
                         startActivity(intent);
@@ -123,7 +116,8 @@ public class UFC11 extends AppCompatActivity {
                     Toast.makeText(UFC11.this, "Username o password errati", Toast.LENGTH_SHORT).show();
                 }
 
+            }*/
             }
-        });
-    }
-}
+                    });
+                }
+            }
