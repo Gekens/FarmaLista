@@ -1,6 +1,9 @@
 package com.example.giacomo.farmalista;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +29,9 @@ public class UFC11 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ufc11);
+        AsyncTask call = new ApiCall(this);
+
+
 
         accedi = (Button) findViewById(R.id.buttonAccedi);
         email = (EditText) findViewById(R.id.emailLogin);
@@ -34,6 +40,9 @@ public class UFC11 extends AppCompatActivity {
         accedi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
 
                 // se i campi email e password sono completi verifico l'identità utente
                 // altrimenti avviso con un messaggio di toast
@@ -73,7 +82,7 @@ public class UFC11 extends AppCompatActivity {
                     ApiCall api = new ApiCall(new ApiCall.AsyncResponse() {
                         @Override
                         public void processFinish(String output) {
-                            Log.d("out", "#"+output+"#");
+                            /*Log.d("out", "#"+output+"#");
                             String prova = output.trim();
                             if (prova.equals("test")) {
                                 Log.d("out", "sono qui dentro!");
@@ -84,7 +93,7 @@ public class UFC11 extends AppCompatActivity {
                                 Boolean test = output.equals("test");
                                 Log.d("out", test.toString());
                                 Toast.makeText(UFC11.this, "Non sei registrato", Toast.LENGTH_SHORT).show();
-                            }
+                            }*/
                         }
                     });
                     api.execute(obj.toString(), "http://10.0.2.2:3000/login", "POST");
@@ -124,4 +133,11 @@ public class UFC11 extends AppCompatActivity {
             }
                     });
                 }
-            }
+    public void change(){
+        Log.d("out", "sono qui dentro!");
+        Intent mIntent = new Intent(UFC11.this,UFC8.class);
+        startActivity(mIntent);
+        finish();
+    }
+}
+

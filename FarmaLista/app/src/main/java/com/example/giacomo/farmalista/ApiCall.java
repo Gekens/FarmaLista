@@ -1,7 +1,11 @@
 package com.example.giacomo.farmalista;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,16 +24,24 @@ public class ApiCall extends AsyncTask<String,String,String> {
     public static String credenziali = "";
     public static String medicine;
     public static String contatti;
+    public UFC11 activity;
+
+    public ApiCall(UFC11 a) {
+        this.activity = a;
+    }
 
     public interface AsyncResponse {
         void processFinish(String output);
     }
+
 
     public AsyncResponse delegate = null;
 
     public ApiCall(AsyncResponse delegate){
         this.delegate = delegate;
     }
+
+
 
     @Override
     protected String doInBackground(String... params) {
@@ -102,6 +114,16 @@ public class ApiCall extends AsyncTask<String,String,String> {
 
     @Override
     protected void onPostExecute(String s) {
+        Log.d("out", "#"+s+"#");
+        String prova = s.trim();
+        if (prova.equals("test")) {
+            activity.change();
+        } else {
+            Boolean test = s.equals("test");
+            Log.d("out", test.toString());
+            Toast.makeText(activity, "Non sei registrato", Toast.LENGTH_SHORT).show();
+        }
         delegate.processFinish(s);
+
     }
 }
