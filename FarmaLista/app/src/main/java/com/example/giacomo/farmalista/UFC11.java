@@ -73,12 +73,16 @@ public class UFC11 extends AppCompatActivity {
                     ApiCall api = new ApiCall(new ApiCall.AsyncResponse() {
                         @Override
                         public void processFinish(String output) {
-                            Log.d("out", output);
-                            if (output.equals("true")) {
-                                Intent intent = new Intent(UFC11.this, UFC8.class);
+                            Log.d("out", "#"+output+"#");
+                            String prova = output.trim();
+                            if (prova.equals("test")) {
+                                Log.d("out", "sono qui dentro!");
+                                Intent intent = new Intent(getApplicationContext(), UFC8.class);
                                 startActivity(intent);
                                 finish();
                             } else {
+                                Boolean test = output.equals("test");
+                                Log.d("out", test.toString());
                                 Toast.makeText(UFC11.this, "Non sei registrato", Toast.LENGTH_SHORT).show();
                             }
                         }
