@@ -28,17 +28,35 @@ public class Fragment_UFC3 extends Fragment {
     ListView mListView;
     Fragment_UFC5 modifica_medicinale;
     FragmentManager vManager;
-    String medicina, name, hour, finishDate;
+    String listaMedicine, name, hour, finishDate;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View vView = inflater.inflate(R.layout.activity_ufc3,container,false);
         vManager = getFragmentManager();
-        medicina = ApiCall.medicine;
+        //medicina = ApiCall.medicine;
+
+        // mi collego al database e richiamo l'eventuale lista medicinali memorizzata
+        // se il db è vuoto mostro una lista vuota
+
+        // istruzioni per richiedere al db la lista medicinali
+        ApiCall api = new ApiCall(new ApiCall.AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+
+                // non so come funziona è solo una ipotesi: quando il processo di richiesta finisce
+                // dentro la stringa output ho quando ricevuto dal backend, cioè la lista della medicine
+                listaMedicine = output; // è un array di stringhe, eventualmente vuoto
+            }
+        });
+        // il primo parametro è l'oggetto, il secondo è l'indirizzo del backend, il terzo è il tipo di richiesta
+         api.execute("","http://10.0.2.2:3000/medicine/"+ApiCall.id_utente,"GET");
+
+
         JSONArray array = null;
         try {
-            array = new JSONArray(medicina);
+            array = new JSONArray( listaMedicine);
             for(int i=0; i<array.length(); i++){
                 JSONObject jsonObj  = array.getJSONObject(i);
                 name = jsonObj.getString("nome_medicina");

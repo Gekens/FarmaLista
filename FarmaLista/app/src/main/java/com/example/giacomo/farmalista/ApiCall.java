@@ -1,8 +1,5 @@
 package com.example.giacomo.farmalista;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -24,6 +21,7 @@ public class ApiCall extends AsyncTask<String,String,String> {
     public static String credenziali = "";
     public static String medicine;
     public static String contatti;
+    public static final int id_utente = 3;
     public UFC11 activity;
 
     public ApiCall(UFC11 a) {
