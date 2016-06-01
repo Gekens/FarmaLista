@@ -24,11 +24,6 @@ public class ApiCall extends AsyncTask<String,String,String> {
     public static String credenziali = "";
     public static String medicine;
     public static String contatti;
-    public UFC11 activity;
-
-    public ApiCall(UFC11 a) {
-        this.activity = a;
-    }
 
     public interface AsyncResponse {
         void processFinish(String output);
@@ -115,14 +110,6 @@ public class ApiCall extends AsyncTask<String,String,String> {
     @Override
     protected void onPostExecute(String s) {
         Log.d("out", "#"+s+"#");
-        String prova = s.trim();
-        if (prova.equals("test")) {
-            activity.change();
-        } else {
-            Boolean test = s.equals("test");
-            Log.d("out", test.toString());
-            Toast.makeText(activity, "Non sei registrato", Toast.LENGTH_SHORT).show();
-        }
         delegate.processFinish(s);
 
     }

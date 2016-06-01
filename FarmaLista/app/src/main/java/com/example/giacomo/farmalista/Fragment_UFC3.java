@@ -35,7 +35,7 @@ public class Fragment_UFC3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View vView = inflater.inflate(R.layout.activity_ufc3,container,false);
         vManager = getFragmentManager();
-        medicina = ApiCall.medicine;
+       /* medicina = ApiCall.medicine;
         JSONArray array = null;
         try {
             array = new JSONArray(medicina);
@@ -47,7 +47,7 @@ public class Fragment_UFC3 extends Fragment {
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
         mListView = (ListView) vView.findViewById(R.id.listView);
