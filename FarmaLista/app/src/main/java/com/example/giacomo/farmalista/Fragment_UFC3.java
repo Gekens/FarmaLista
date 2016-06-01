@@ -49,6 +49,7 @@ public class Fragment_UFC3 extends Fragment {
                 // non so come funziona è solo una ipotesi: quando il processo di richiesta finisce
                 // dentro la stringa output ho quando ricevuto dal backend, cioè la lista della medicine
                 listaMedicine = output; // è un array di stringhe, eventualmente vuoto
+                Log.d("out",listaMedicine);
             }
         });
         // il primo parametro è l'oggetto, il secondo è l'indirizzo del backend, il terzo è il tipo di richiesta
