@@ -24,12 +24,12 @@ public class UFC11 extends AppCompatActivity {
 
     Button accedi;
     EditText email, password;
+    String prova;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ufc11);
-        AsyncTask call = new ApiCall(this);
 
 
 
@@ -82,18 +82,18 @@ public class UFC11 extends AppCompatActivity {
                     ApiCall api = new ApiCall(new ApiCall.AsyncResponse() {
                         @Override
                         public void processFinish(String output) {
-                            /*Log.d("out", "#"+output+"#");
-                            String prova = output.trim();
+                            Log.d("out", "#"+output+"#");
+                            prova = output.trim();
                             if (prova.equals("test")) {
                                 Log.d("out", "sono qui dentro!");
-                                Intent intent = new Intent(getApplicationContext(), UFC8.class);
+                                Intent intent = new Intent(UFC11.this, UFC8.class);
                                 startActivity(intent);
                                 finish();
                             } else {
-                                Boolean test = output.equals("test");
-                                Log.d("out", test.toString());
+                                //Boolean test = output.equals("test");
+                                //Log.d("out", test.toString());
                                 Toast.makeText(UFC11.this, "Non sei registrato", Toast.LENGTH_SHORT).show();
-                            }*/
+                            }
                         }
                     });
                     api.execute(obj.toString(), "http://10.0.2.2:3000/login", "POST");
@@ -133,11 +133,5 @@ public class UFC11 extends AppCompatActivity {
             }
                     });
                 }
-    public void change(){
-        Log.d("out", "sono qui dentro!");
-        Intent mIntent = new Intent(UFC11.this,UFC8.class);
-        startActivity(mIntent);
-        finish();
-    }
 }
 

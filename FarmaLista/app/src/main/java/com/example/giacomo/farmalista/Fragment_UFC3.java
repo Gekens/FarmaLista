@@ -53,7 +53,7 @@ public class Fragment_UFC3 extends Fragment {
         // il primo parametro è l'oggetto, il secondo è l'indirizzo del backend, il terzo è il tipo di richiesta
         api.execute("","http://10.0.2.2:3000/medicine/"+ApiCall.id_utente,"GET");
 
-        JSONArray array = null;
+        /*JSONArray array = null;
         try {
             array = new JSONArray(listaMedicine);
             for(int i=0; i<array.length(); i++){
@@ -64,7 +64,7 @@ public class Fragment_UFC3 extends Fragment {
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
         mListView = (ListView) vView.findViewById(R.id.listView);
