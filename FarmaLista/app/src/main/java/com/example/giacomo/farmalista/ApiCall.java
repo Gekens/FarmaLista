@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -44,49 +45,78 @@ public class ApiCall extends AsyncTask<String,String,String> {
         String chiamata = params[2];
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
+
         try {
-            URL url = new URL(indirizzo);
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setDoOutput(true);
-            // is output buffer writter
-            urlConnection.setRequestMethod(chiamata);
-            urlConnection.setRequestProperty("Content-Type", "application/json");
-            urlConnection.setRequestProperty("Accept", "application/json");
-            //set headers and method
-            Writer writer = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
-            writer.write(JsonDATA);
-            // json data
-            writer.close();
-            InputStream inputStream = urlConnection.getInputStream();
-            //input stream
-            StringBuffer buffer = new StringBuffer();
-            if (inputStream == null) {
-                // Nothing to do.
+            if (chiamata=="POST"){
+                URL url = new URL(indirizzo);
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setDoOutput(true);
+                // is output buffer writter
+                urlConnection.setRequestMethod(chiamata);
+                urlConnection.setRequestProperty("Content-Type", "application/json");
+                urlConnection.setRequestProperty("Accept", "application/json");
+                //set headers and method
+                Writer writer = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
+                writer.write(JsonDATA);
+                // json data
+                writer.close();
+                InputStream inputStream = urlConnection.getInputStream();
+                //input stream
+                StringBuffer buffer = new StringBuffer();
+                if (inputStream == null) {
+                    // Nothing to do.
+                    return null;
+                }
+                reader = new BufferedReader(new InputStreamReader(inputStream));
+
+                String inputLine;
+                while ((inputLine = reader.readLine()) != null)
+                    buffer.append(inputLine + "\n");
+                if (buffer.length() == 0) {
+                    // Stream was empty. No point in parsing.
+                    return null;
+                }
+                JsonResponse = buffer.toString();
+                //response data
+                Log.i("tag",JsonResponse);
+
+                try {
+                    //send to post execute
+                    return JsonResponse;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 return null;
+
+
+
+
             }
-            reader = new BufferedReader(new InputStreamReader(inputStream));
+            else {
+                StringBuilder result = new StringBuilder();
 
-            String inputLine;
-            while ((inputLine = reader.readLine()) != null)
-                buffer.append(inputLine + "\n");
-            if (buffer.length() == 0) {
-                // Stream was empty. No point in parsing.
-                return null;
+                try {
+                    URL url = new URL(indirizzo);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+                    BufferedReader reader2 = new BufferedReader(new InputStreamReader(in));
+
+                    String line;
+                    while ((line = reader2.readLine()) != null) {
+                        result.append(line);
+                    }
+
+                }catch( Exception e) {
+                    e.printStackTrace();
+                }
+                finally {
+                    urlConnection.disconnect();
+                }
+
+
+                return result.toString();
             }
-            JsonResponse = buffer.toString();
-            //response data
-            Log.i("tag",JsonResponse);
-
-            try {
-            //send to post execute
-                return JsonResponse;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,11 +57,17 @@ public class Fragment_UFC3 extends Fragment {
         /*JSONArray array = null;
         try {
             array = new JSONArray(listaMedicine);
-            for(int i=0; i<array.length(); i++){
-                JSONObject jsonObj  = array.getJSONObject(i);
-                name = jsonObj.getString("nome_medicina");
-                hour = jsonObj.getString("dosaggio");
-                finishDate = jsonObj.getString("vdata");
+            if (array!=null){
+                for(int i=0; i<array.length(); i++){
+                    JSONObject jsonObj  = array.getJSONObject(i);
+                    name = jsonObj.getString("nome_medicina");
+                    hour = jsonObj.getString("dosaggio");
+                    finishDate = jsonObj.getString("vdata");
+                }
+            }
+            else
+            {
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -69,7 +76,10 @@ public class Fragment_UFC3 extends Fragment {
 
         mListView = (ListView) vView.findViewById(R.id.listView);
         ArrayList<Medicine> vMedicine = new ArrayList<>();
-        vMedicine.add(new Medicine(name, hour, finishDate));
+        /*for (int i=0; i<vMedicine.length();i++){
+            vMedicine.add(new Medicine());
+        }*/
+
 
         MedicineAdapter vAdapter= new MedicineAdapter(vView.getContext(),vMedicine);
         mListView.setAdapter(vAdapter);
