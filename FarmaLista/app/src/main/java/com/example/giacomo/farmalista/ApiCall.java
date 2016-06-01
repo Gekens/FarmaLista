@@ -21,6 +21,7 @@ public class ApiCall extends AsyncTask<String,String,String> {
     public static String credenziali = "";
     public static String medicine;
     public static String contatti;
+    public static int id_utente = 3;
     public UFC11 activity;
 
     public ApiCall(UFC11 a) {
