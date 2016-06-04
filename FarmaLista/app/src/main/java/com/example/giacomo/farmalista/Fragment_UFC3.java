@@ -15,7 +15,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Utente on 24/05/2016.
@@ -26,6 +34,8 @@ public class Fragment_UFC3 extends Fragment {
     Fragment_UFC5 modifica_medicinale;
     FragmentManager vManager;
     String listaMedicine, name, hour, finishDate;
+    Gson request;
+    Medicine[] meds;
 
     @Nullable
     @Override
@@ -44,13 +54,20 @@ public class Fragment_UFC3 extends Fragment {
 
                 // non so come funziona è solo una ipotesi: quando il processo di richiesta finisce
                 // dentro la stringa output ho quando ricevuto dal backend, cioè la lista della medicine
-                listaMedicine = output; // è un array di stringhe, eventualmente vuoto
-                Log.d("out",listaMedicine);
-                
+                //listaMedicine = output; // è un array di stringhe, eventualmente vuoto
+                //Log.d("out",listaMedicine);
+
+
             }
         });
         // il primo parametro è l'oggetto, il secondo è l'indirizzo del backend, il terzo è il tipo di richiesta
-        api.execute("","http://10.0.2.2:3000/medicine/"+ApiCall.id_utente,"GET");
+        try {
+             listaMedicine = api.execute("","http://10.0.2.2:3000/medicine/"+ApiCall.id_utente,"GET").get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
         /*JSONArray array = null;
         try {
@@ -71,9 +88,13 @@ public class Fragment_UFC3 extends Fragment {
             e.printStackTrace();
         }*/
 
+        request = new Gson();
+        //JsonParser jsonparser = new JsonParser();
+        //JSONArray med = (JSONArray)jsonparser.parse(listaMedicine);
+        meds = request.fromJson(listaMedicine, Medicine[].class);
 
         mListView = (ListView) vView.findViewById(R.id.listView);
-        ArrayList<Medicine> vMedicine = new ArrayList<>();
+        ArrayList<Medicine> vMedicine = new ArrayList<Medicine> (Arrays.asList(meds));
         /*for (int i=0; i<vMedicine.length();i++){
             vMedicine.add(new Medicine());
         }*/

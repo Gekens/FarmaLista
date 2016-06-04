@@ -1,5 +1,7 @@
 package com.example.giacomo.farmalista;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,10 +15,13 @@ public class Medicine {
 static String medicina;
 
 
+    @SerializedName("nome")
     private String name;
+    @SerializedName("dosaggio")
     private String hour;
+    @SerializedName("giorni")
     private String finishDate;
-    private int mId;
+    private transient int mId;
 
     public Medicine() {
     }
